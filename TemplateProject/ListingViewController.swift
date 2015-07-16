@@ -12,6 +12,7 @@ import Parse
 class ListingViewController: UIViewController {
     
     var posts: [Post] = []
+    
     @IBOutlet weak var tableView: UITableView!
     let refPoint = PFGeoPoint(latitude: 40.7461608, longitude: -74.0064551) //hardcoded value for current location (MakeSchool)
     
@@ -22,8 +23,7 @@ class ListingViewController: UIViewController {
         
         postsQuery!.orderByDescending("createdAt")
         
-        postsQuery!.whereKey("location", nearGeoPoint: refPoint, withinMiles: 0.05) //geosearch
-        
+        postsQuery!.whereKey("location", nearGeoPoint: refPoint, withinMiles: 0.05)
         postsQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
             self.posts = result as? [Post] ?? []
             self.tableView.reloadData()
@@ -34,6 +34,13 @@ class ListingViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func unwindToSegue(segue: UIStoryboardSegue) {
+        
+        if let identifier = segue.identifier {
+            println("Identifier \(identifier)")
+        }
     }
 
 

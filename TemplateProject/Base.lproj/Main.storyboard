@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C2043" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oup-bF-U3D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C2043" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vgC-EC-NW6">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="piD-CB-a5x">
+            <objects>
+                <navigationController id="vgC-EC-NW6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OPF-jG-mGt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="y0E-Bt-Jx6" kind="relationship" relationship="rootViewController" id="M2P-bH-cSc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gDf-Ga-hmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1512" y="-360"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="JG6-Ll-GNv">
+            <objects>
+                <viewController id="y0E-Bt-Jx6" customClass="MapViewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aga-AL-yaC"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfd-2G-Dxi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Liu-KF-E2z">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lMA-NX-Jez">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lMA-NX-Jez" firstAttribute="top" secondItem="aga-AL-yaC" secondAttribute="bottom" id="BQu-RG-UXS"/>
+                            <constraint firstItem="lMA-NX-Jez" firstAttribute="leading" secondItem="Liu-KF-E2z" secondAttribute="leading" id="IpZ-4C-xnz"/>
+                            <constraint firstAttribute="trailing" secondItem="lMA-NX-Jez" secondAttribute="trailing" id="MqV-uQ-R3P"/>
+                            <constraint firstAttribute="bottom" secondItem="lMA-NX-Jez" secondAttribute="bottom" id="sjV-ZW-tMl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aoB-Hs-yhw">
+                        <barButtonItem key="rightBarButtonItem" title="All Posts" id="24z-lw-SPn">
+                            <connections>
+                                <segue destination="oup-bF-U3D" kind="show" id="if1-dk-8c1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="lMA-NX-Jez" id="KH7-NV-ixU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VUQ-hq-lQY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-722" y="-360"/>
+        </scene>
         <!--Listing View Controller-->
         <scene sceneID="qlZ-sv-l3t">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="05U-ns-OOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="oup-bF-U3D" customClass="ListingViewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zh1-cn-wDO"/>
@@ -18,18 +72,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eB-vb-ibZ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="3zF-A8-5P0">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2ii-8R-2Zj">
-                                            <connections>
-                                                <segue destination="XDG-b7-Q0z" kind="modal" id="B3F-1l-9bu"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vIC-HI-Ddd">
                                 <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,73 +95,65 @@
                             <constraint firstItem="vIC-HI-Ddd" firstAttribute="top" secondItem="VuO-Lx-v03" secondAttribute="topMargin" constant="44" id="Pyf-7X-xbM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vIC-HI-Ddd" secondAttribute="trailing" constant="-16" id="bie-DL-EkY"/>
                             <constraint firstItem="30u-3F-30y" firstAttribute="top" secondItem="vIC-HI-Ddd" secondAttribute="bottom" id="bq9-ck-XcD"/>
-                            <constraint firstAttribute="trailing" secondItem="5eB-vb-ibZ" secondAttribute="trailing" id="kMc-dy-VPa"/>
-                            <constraint firstItem="5eB-vb-ibZ" firstAttribute="leading" secondItem="VuO-Lx-v03" secondAttribute="leading" id="pEt-Fe-fNJ"/>
-                            <constraint firstItem="5eB-vb-ibZ" firstAttribute="top" secondItem="VuO-Lx-v03" secondAttribute="top" id="qgA-b2-Wg6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="YFN-FL-CG2">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="Oe4-NW-13F">
+                            <connections>
+                                <segue destination="QPa-wV-Vbm" kind="show" id="SZF-bX-IWQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="vIC-HI-Ddd" id="z5v-68-k2O"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="05U-ns-OOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="590" y="-138"/>
+            <point key="canvasLocation" x="48" y="-360"/>
         </scene>
         <!--Post Maker View Controller-->
-        <scene sceneID="QkT-ky-jrR">
+        <scene sceneID="HVj-WF-8ka">
             <objects>
-                <viewController id="XDG-b7-Q0z" customClass="PostMakerViewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QPa-wV-Vbm" customClass="PostMakerViewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PGp-Xs-SAX"/>
-                        <viewControllerLayoutGuide type="bottom" id="4Fk-bW-ZJd"/>
+                        <viewControllerLayoutGuide type="top" id="qKF-HJ-mAS"/>
+                        <viewControllerLayoutGuide type="bottom" id="w4p-GF-6y4"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Z15-pM-k7O">
+                    <view key="view" contentMode="scaleToFill" id="oF9-Of-I7C">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ds-Bp-Cyq">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="QYg-8A-OPh">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="ci2-bO-Yq8">
-                                            <connections>
-                                                <segue destination="BGG-dq-Twh" kind="unwind" unwindAction="unwindToListing:" id="pqn-Mn-jq0"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="Szo-AC-Y9d">
-                                            <connections>
-                                                <action selector="savePost:" destination="XDG-b7-Q0z" id="xlK-LN-5Qb"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text text text" translatesAutoresizingMaskIntoConstraints="NO" id="FAh-Qz-YVl">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="some text here" translatesAutoresizingMaskIntoConstraints="NO" id="T1F-El-jLk">
+                                <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="FAh-Qz-YVl" firstAttribute="top" secondItem="Z15-pM-k7O" secondAttribute="top" constant="44" id="Cit-K9-08A"/>
-                            <constraint firstAttribute="trailing" secondItem="FAh-Qz-YVl" secondAttribute="trailing" id="FPL-D4-hd9"/>
-                            <constraint firstItem="7ds-Bp-Cyq" firstAttribute="top" secondItem="Z15-pM-k7O" secondAttribute="top" id="K2e-rH-7OT"/>
-                            <constraint firstItem="7ds-Bp-Cyq" firstAttribute="leading" secondItem="Z15-pM-k7O" secondAttribute="leading" id="REc-jz-9Z1"/>
-                            <constraint firstItem="FAh-Qz-YVl" firstAttribute="leading" secondItem="Z15-pM-k7O" secondAttribute="leading" id="m4E-Zo-gjU"/>
-                            <constraint firstItem="4Fk-bW-ZJd" firstAttribute="top" secondItem="FAh-Qz-YVl" secondAttribute="bottom" id="n8T-9D-2pc"/>
-                            <constraint firstAttribute="trailing" secondItem="7ds-Bp-Cyq" secondAttribute="trailing" id="qWI-qm-PrJ"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fo4-E7-iLX">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="ngQ-6i-s7O">
+                            <connections>
+                                <segue destination="qpS-Gq-saD" kind="unwind" unwindAction="unwindToSegue:" id="3PD-oF-j69"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Ltn-g8-8VP">
+                            <connections>
+                                <action selector="savePost:" destination="QPa-wV-Vbm" id="cYt-6j-8yH"/>
+                                <segue destination="qpS-Gq-saD" kind="unwind" unwindAction="unwindToSegue:" id="Z2N-VM-2TW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="postTextView" destination="FAh-Qz-YVl" id="IM2-Lb-Aag"/>
+                        <outlet property="postTextView" destination="T1F-El-jLk" id="AqO-Fv-l35"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Snc-zb-FHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="BGG-dq-Twh" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lFY-3Y-Yaz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qpS-Gq-saD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1318" y="-138"/>
+            <point key="canvasLocation" x="753" y="-360"/>
         </scene>
     </scenes>
 </document>

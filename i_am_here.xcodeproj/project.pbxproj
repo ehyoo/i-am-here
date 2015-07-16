@@ -10,7 +10,8 @@
 		2BFF9DE21B55513C001F4FD4 /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF9DE11B55513C001F4FD4 /* ListingViewController.swift */; };
 		2BFF9DE41B555807001F4FD4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF9DE31B555807001F4FD4 /* Post.swift */; };
 		2BFF9DE81B5582C8001F4FD4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF9DE71B5582C8001F4FD4 /* PostTableViewCell.swift */; };
-		2BFF9DEB1B558F6D001F4FD4 /* PostMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF9DEA1B558F6D001F4FD4 /* PostMakerViewController.swift */; };
+		2BFF9DEE1B56D89A001F4FD4 /* PostMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF9DED1B56D89A001F4FD4 /* PostMakerViewController.swift */; };
+		2BFF9DF11B56FDEF001F4FD4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF9DF01B56FDEF001F4FD4 /* MapViewController.swift */; };
 		624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624262B21B4460CB00005CE3 /* AppDelegate.swift */; };
 		624262C11B4460CB00005CE3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 624262B31B4460CB00005CE3 /* LaunchScreen.xib */; };
 		624262C21B4460CB00005CE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 624262B51B4460CB00005CE3 /* Main.storyboard */; };
@@ -131,7 +132,8 @@
 		2BFF9DE11B55513C001F4FD4 /* ListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListingViewController.swift; path = ../ListingViewController.swift; sourceTree = "<group>"; };
 		2BFF9DE31B555807001F4FD4 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2BFF9DE71B5582C8001F4FD4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		2BFF9DEA1B558F6D001F4FD4 /* PostMakerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMakerViewController.swift; sourceTree = "<group>"; };
+		2BFF9DED1B56D89A001F4FD4 /* PostMakerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMakerViewController.swift; sourceTree = "<group>"; };
+		2BFF9DF01B56FDEF001F4FD4 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ViewControllers/MapViewController.swift; sourceTree = "<group>"; };
 		624262B21B4460CB00005CE3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		624262B41B4460CB00005CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		624262B61B4460CB00005CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -218,8 +220,9 @@
 		2BFF9DE91B558DF2001F4FD4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2BFF9DED1B56D89A001F4FD4 /* PostMakerViewController.swift */,
 				2BFF9DE11B55513C001F4FD4 /* ListingViewController.swift */,
-				2BFF9DEA1B558F6D001F4FD4 /* PostMakerViewController.swift */,
+				2BFF9DF01B56FDEF001F4FD4 /* MapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -462,8 +465,9 @@
 				624262C31B4460CB00005CE3 /* ErrorHandling.swift in Sources */,
 				2BFF9DE21B55513C001F4FD4 /* ListingViewController.swift in Sources */,
 				2BFF9DE41B555807001F4FD4 /* Post.swift in Sources */,
-				2BFF9DEB1B558F6D001F4FD4 /* PostMakerViewController.swift in Sources */,
+				2BFF9DEE1B56D89A001F4FD4 /* PostMakerViewController.swift in Sources */,
 				2BFF9DE81B5582C8001F4FD4 /* PostTableViewCell.swift in Sources */,
+				2BFF9DF11B56FDEF001F4FD4 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
