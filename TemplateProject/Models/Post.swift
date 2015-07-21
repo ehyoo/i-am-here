@@ -8,9 +8,11 @@
 
 import Foundation
 import Parse
+import MapKit
+
 
 class Post: PFObject, PFSubclassing {
-    @NSManaged var imageFile: PFFile?
+    @NSManaged var imageFile: PFFile
     @NSManaged var user: PFUser?
     @NSManaged var location: PFGeoPoint?
     @NSManaged var text: String?

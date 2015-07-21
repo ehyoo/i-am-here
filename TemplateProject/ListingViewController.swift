@@ -14,7 +14,8 @@ class ListingViewController: UIViewController {
     var posts: [Post] = []
     
     @IBOutlet weak var tableView: UITableView!
-    let refPoint = PFGeoPoint(latitude: 40.7461608, longitude: -74.0064551) //hardcoded value for current location (MakeSchool)
+    let refPoint = PFGeoPoint(latitude: 37.33240841351742, longitude: -122.0304785250445)
+    //hardcoded value for Apple Headquarters- gotta fix this. 
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -22,11 +23,23 @@ class ListingViewController: UIViewController {
         let postsQuery = Post.query()
         
         postsQuery!.orderByDescending("createdAt")
-        
+        //bases query based on location
         postsQuery!.whereKey("location", nearGeoPoint: refPoint, withinMiles: 0.05)
+        //actual query 
         postsQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
             self.posts = result as? [Post] ?? []
             self.tableView.reloadData()
+        }
+    }
+    
+    @IBAction func unwindToSegue(segue: UIStoryboardSegue) {
+        if let identifier = segue.identifier {
+            switch identifier {
+                case "Save":
+                    println("save")
+                default:
+                    println("switch")
+            }
         }
     }
 
@@ -36,12 +49,6 @@ class ListingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func unwindToSegue(segue: UIStoryboardSegue) {
-        
-        if let identifier = segue.identifier {
-            println("Identifier \(identifier)")
-        }
-    }
 
 
 }

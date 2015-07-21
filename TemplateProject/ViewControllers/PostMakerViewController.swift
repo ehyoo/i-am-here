@@ -12,27 +12,18 @@ import UIKit
 import CoreLocation
 import Parse
 
+
 class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
     
-    let locationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
+    let regionRadius: CLLocationDistance = 250
+    var currentLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
+    var postLocation = PFGeoPoint(latitude: 0.0, longitude: 0.0)
     
     @IBOutlet weak var postTextView: UITextView!
-
-    var geoLocation = PFGeoPoint(latitude: 0.0, longitude: 0.0)
-    
-    
-    @IBAction func savePost(sender: AnyObject) {
-        let post = PFObject(className: "Post")
-        post["text"] = postTextView.text
-        post["location"] = geoLocation //<= THIS DOESNT WORK.
-        
-        post.save()
-    }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //used in background
         self.locationManager.requestAlwaysAuthorization()
         
@@ -45,26 +36,43 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
             self.locationManager.requestAlwaysAuthorization()
             self.locationManager.startUpdatingLocation()
         }
-        
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        var currentLocation: CLLocationCoordinate2D = manager.location.coordinate
-        
-        geoLocation.latitude = currentLocation.latitude
-        geoLocation.longitude = currentLocation.longitude
-        //issue with testing- coordinates are very far off. Assuming it's the simulator and not the code.
+        var currentLongitude: CLLocationDegrees = manager.location.coordinate.longitude
+        var currentLatitude: CLLocationDegrees = manager.location.coordinate.latitude
+        currentLocation = CLLocation(latitude: currentLatitude, longitude: currentLongitude)
     }
     
-
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         //loads alert controller when location could not be gotten
-        let alertController = UIAlertController(title: "locationError", message: "Could not load current location.", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Error", message: "Could not load current location.", preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "OK", style:UIAlertActionStyle.Default, handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
+    
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier{
+        
+        switch identifier {
+          case "Save":
+            let post = PFObject(className: "Post")
+            postLocation.longitude = currentLocation.coordinate.longitude
+            postLocation.latitude = currentLocation.coordinate.latitude
+            post["text"] = postTextView.text
+            post["location"] = postLocation
+            post.save()
+          default:
+            println("switching")
+            }
+        }
+        
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

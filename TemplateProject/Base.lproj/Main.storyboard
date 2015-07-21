@@ -24,7 +24,7 @@
         <!--Map View Controller-->
         <scene sceneID="JG6-Ll-GNv">
             <objects>
-                <viewController id="y0E-Bt-Jx6" customClass="MapViewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="y0E-Bt-Jx6" customClass="MapViewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aga-AL-yaC"/>
                         <viewControllerLayoutGuide type="bottom" id="wfd-2G-Dxi"/>
@@ -136,13 +136,12 @@
                     <navigationItem key="navigationItem" id="fo4-E7-iLX">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="ngQ-6i-s7O">
                             <connections>
-                                <segue destination="qpS-Gq-saD" kind="unwind" unwindAction="unwindToSegue:" id="3PD-oF-j69"/>
+                                <segue destination="qpS-Gq-saD" kind="unwind" unwindAction="unwindToSegue:" id="1bb-dk-rCB"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="Ltn-g8-8VP">
                             <connections>
-                                <action selector="savePost:" destination="QPa-wV-Vbm" id="cYt-6j-8yH"/>
-                                <segue destination="qpS-Gq-saD" kind="unwind" unwindAction="unwindToSegue:" id="Z2N-VM-2TW"/>
+                                <segue destination="qpS-Gq-saD" kind="unwind" identifier="Save" unwindAction="unwindToSegue:" id="H7w-ku-rJv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
