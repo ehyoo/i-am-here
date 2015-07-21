@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 ErrorHandling.defaultErrorHandler(error)
             } else if let user = user {
              //if login was successful show the map
-                let storyboard = UIStoryBoard(name: "Main", bundle: nil)
-                let mapViewController = storyboard.instantiateViewController("MapViewController") as! UIViewController
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mapViewController = storyboard.instantiateViewControllerWithIdentifier("navigationController") as! UINavigationController
                 self.window?.rootViewController!.presentViewController(mapViewController, animated: true, completion: nil)
             }
         }
@@ -52,8 +52,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     if user != nil {
         //if user exists, set the MapViewController to be initial 
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        startViewController = storyboard.instantiateViewControllerWithIdentifier("MapViewController") as! UIViewController
+    } else {
+        //otherwise let LoginViewController to be the first 
+        let loginViewController = PFLogInViewController()
+        loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
+        loginViewController.delegate = parseLoginHelper
+        loginViewController.signUpController?.delegate = parseLoginHelper
         
+        startViewController = loginViewController
     }
+    
+    self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    self.window?.rootViewController = startViewController;
+    self.window?.makeKeyAndVisible()
     
     return true
   }
