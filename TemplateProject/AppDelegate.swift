@@ -53,15 +53,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if user != nil {
         //if user exists, set the MapViewController to be initial 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        startViewController = storyboard.instantiateViewControllerWithIdentifier("MapViewController") as! UIViewController
+        var mapViewController = storyboard.instantiateViewControllerWithIdentifier("MapViewController") as! UIViewController
+        startViewController = UINavigationController(rootViewController: mapViewController)
     } else {
         //otherwise let LoginViewController to be the first 
+        //we have to make our custom signin thing to be our first. 
+        let storyboard = UIStoryboard(name:"Main", bundle: nil)
+        startViewController = storyboard.instantiateViewControllerWithIdentifier("LogInViewController") as! UIViewController
+        /*
         let loginViewController = PFLogInViewController()
         loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
         loginViewController.delegate = parseLoginHelper
         loginViewController.signUpController?.delegate = parseLoginHelper
         
-        startViewController = loginViewController
+        startViewController = loginViewController 
+        */
     }
     
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)

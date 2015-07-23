@@ -20,6 +20,7 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
     var currentLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
     var postLocation = PFGeoPoint(latitude: 0.0, longitude: 0.0)
     
+    @IBOutlet weak var usernameInput: UITextField!
     @IBOutlet weak var postTextView: UITextView!
     
     override func viewDidLoad() {
@@ -36,6 +37,8 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
             self.locationManager.requestAlwaysAuthorization()
             self.locationManager.startUpdatingLocation()
         }
+        
+        //autofill the post so that it shows their username. 
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -59,12 +62,7 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
         
         switch identifier {
           case "Save":
-            let post = PFObject(className: "Post")
-            postLocation.longitude = currentLocation.coordinate.longitude
-            postLocation.latitude = currentLocation.coordinate.latitude
-            post["text"] = postTextView.text
-            post["location"] = postLocation
-            post.save()
+            savePost()
           default:
             println("switching")
             }
@@ -72,7 +70,17 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    
+    func savePost() {
+        //function that saves post
+        let post = PFObject(className: "Post")
+        postLocation.longitude = currentLocation.coordinate.longitude
+        postLocation.latitude = currentLocation.coordinate.latitude
+        post["text"] = postTextView.text
+        post["location"] = postLocation
+        post["displayName"] = usernameInput.text
+        post["user"] = PFUser.currentUser()
+        post.saveInBackground()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

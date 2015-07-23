@@ -16,6 +16,7 @@ class Post: PFObject, PFSubclassing {
     @NSManaged var user: PFUser?
     @NSManaged var location: PFGeoPoint?
     @NSManaged var text: String?
+    @NSManaged var displayName: String?
     
     static func parseClassName() -> String {
         return "Post"

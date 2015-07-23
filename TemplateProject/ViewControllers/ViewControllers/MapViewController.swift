@@ -25,6 +25,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
+        // let currentUser = PFUser.currentUser()  < see comment below
         super.viewDidLoad()
         //used in background
         self.locationManager.requestAlwaysAuthorization()
@@ -47,6 +48,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             var clLat = currentLocation.coordinate.latitude
             var clLong = currentLocation.coordinate.longitude
             var refPoint = PFGeoPoint(latitude: clLat, longitude: clLong)
+            //assign user location
+            
+            /*
+            //this works but it doesn't store it in parse
+            currentUser!["location"] = refPoint
+            println(refPoint)
+            */
+            
             
             postsQuery!.whereKey("location", nearGeoPoint: refPoint, withinMiles: 1.0) //change this to be more specific
             postsQuery!.includeKey("user")
@@ -64,7 +73,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                     var long = self.posts[x].location!.longitude
                     let user = self.posts[x].user
                     
-                    var marker = Marker(user: "whatever", title: self.posts[x].user!.username!, text: self.posts[x].text!, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
+                    var marker = Marker(user: "whatever", title: self.posts[x].displayName!, text: self.posts[x].text!, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
                     self.markers.append(marker)
                 }
                 self.mapView.addAnnotations(self.markers)
@@ -93,8 +102,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-    
-    
 
 }
 
