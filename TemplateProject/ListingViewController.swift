@@ -35,17 +35,16 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
             self.locationManager.requestAlwaysAuthorization()
             self.locationManager.startUpdatingLocation()
         }
-        
-        var currentLocationLatitude = currentLocation.coordinate.latitude
-        var currentLocationLongitude = currentLocation.coordinate.longitude
-        currentLocationConverted = PFGeoPoint(latitude: currentLocationLatitude, longitude: currentLocationLongitude)
-        
+    }
+    
+    func queryUpdateList(coordinate: PFGeoPoint) {
+        //query and updating the table view list
         let postsQuery = Post.query()
         
         postsQuery!.orderByDescending("createdAt")
         //bases query based on location
         postsQuery!.whereKey("location", nearGeoPoint: currentLocationConverted, withinMiles: 0.05)
-        //actual query 
+        //actual query
         postsQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
             self.posts = result as? [Post] ?? []
             self.tableView.reloadData()
@@ -56,6 +55,10 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
         var currentLongitude: CLLocationDegrees = manager.location.coordinate.longitude
         var currentLatitude: CLLocationDegrees = manager.location.coordinate.latitude
         currentLocation = CLLocation(latitude: currentLatitude, longitude: currentLongitude)
+        var currentLocationLatitude = currentLocation.coordinate.latitude
+        var currentLocationLongitude = currentLocation.coordinate.longitude
+        currentLocationConverted = PFGeoPoint(latitude: currentLocationLatitude, longitude: currentLocationLongitude)
+        queryUpdateList(currentLocationConverted)
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
