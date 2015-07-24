@@ -83,9 +83,12 @@ extension ListingViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
         
-        cell.textLabel!.text = posts[indexPath.row].text
+        cell.displayNameLabel!.text = posts[indexPath.row].displayName
+        cell.postTextLabel!.text = posts[indexPath.row].text
+        
+        //cell.textLabel!.text = posts[indexPath.row].text
         
         return cell
     }

@@ -6,10 +6,16 @@
 //  Copyright (c) 2015 Make School. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import Parse
 
 class PostTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var postTextLabel: UILabel!
+    @IBOutlet weak var displayNameLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
