@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B08AC3A1B62B7E200AC809D /* FullPostviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08AC391B62B7E200AC809D /* FullPostviewController.swift */; };
+		2B97ECE91B62E9CA00824DDC /* myAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B97ECE81B62E9CA00824DDC /* myAccountViewController.swift */; };
 		2BE272C11B594E5700BEDE61 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE272C01B594E5700BEDE61 /* Marker.swift */; };
 		2BE272C31B59872A00BEDE61 /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE272C21B59872A00BEDE61 /* VCMapView.swift */; };
 		2BE272C51B5EDE4500BEDE61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE272C41B5EDE4500BEDE61 /* LoginViewController.swift */; };
@@ -134,6 +135,7 @@
 
 /* Begin PBXFileReference section */
 		2B08AC391B62B7E200AC809D /* FullPostviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullPostviewController.swift; sourceTree = "<group>"; };
+		2B97ECE81B62E9CA00824DDC /* myAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myAccountViewController.swift; sourceTree = "<group>"; };
 		2BE272C01B594E5700BEDE61 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		2BE272C21B59872A00BEDE61 /* VCMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
 		2BE272C41B5EDE4500BEDE61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				2BFF9DE11B55513C001F4FD4 /* ListingViewController.swift */,
 				2BE272C41B5EDE4500BEDE61 /* LoginViewController.swift */,
 				2B08AC391B62B7E200AC809D /* FullPostviewController.swift */,
+				2B97ECE81B62E9CA00824DDC /* myAccountViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				2BFF9DE41B555807001F4FD4 /* Post.swift in Sources */,
 				2BFF9DEE1B56D89A001F4FD4 /* PostMakerViewController.swift in Sources */,
 				2BFF9DE81B5582C8001F4FD4 /* PostTableViewCell.swift in Sources */,
+				2B97ECE91B62E9CA00824DDC /* myAccountViewController.swift in Sources */,
 				2BFF9DF11B56FDEF001F4FD4 /* MapViewController.swift in Sources */,
 				2BE272C11B594E5700BEDE61 /* Marker.swift in Sources */,
 				2BE272C51B5EDE4500BEDE61 /* LoginViewController.swift in Sources */,

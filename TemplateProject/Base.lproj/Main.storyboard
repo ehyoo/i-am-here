@@ -108,6 +108,79 @@
             </objects>
             <point key="canvasLocation" x="-577" y="-346"/>
         </scene>
+        <!--My Account View Controller-->
+        <scene sceneID="xP2-2Z-t8j">
+            <objects>
+                <viewController id="qeZ-7a-IJO" customClass="myAccountViewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5t3-AG-e09"/>
+                        <viewControllerLayoutGuide type="bottom" id="enT-7d-DlB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sma-GQ-9ML">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBt-R5-wf5">
+                                <rect key="frame" x="16" y="194" width="568" height="30"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutAction:" destination="qeZ-7a-IJO" eventType="touchUpInside" id="ZCo-nb-EVw"/>
+                                    <segue destination="kq5-Rn-3BB" kind="show" identifier="backToLogIn" id="faM-V9-Iyw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EB0-q9-1Qs">
+                                <rect key="frame" x="16" y="114" width="568" height="30"/>
+                                <state key="normal" title="See My Posts">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="7LB-Gg-Cee" kind="show" id="HHi-ez-Idj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VBt-R5-wf5" firstAttribute="leading" secondItem="sma-GQ-9ML" secondAttribute="leadingMargin" id="1Bd-va-U1F"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EB0-q9-1Qs" secondAttribute="trailing" id="2v3-zJ-UrF"/>
+                            <constraint firstItem="EB0-q9-1Qs" firstAttribute="top" secondItem="5t3-AG-e09" secondAttribute="bottom" constant="50" id="U6Y-PB-QXL"/>
+                            <constraint firstItem="EB0-q9-1Qs" firstAttribute="leading" secondItem="sma-GQ-9ML" secondAttribute="leadingMargin" id="UaD-sG-lqi"/>
+                            <constraint firstItem="VBt-R5-wf5" firstAttribute="top" secondItem="EB0-q9-1Qs" secondAttribute="bottom" constant="50" id="kEU-gi-HDA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VBt-R5-wf5" secondAttribute="trailing" id="rjG-js-rqk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5MV-se-lJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="172" y="-1020"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GAf-Wi-Dk2">
+            <objects>
+                <viewController id="7LB-Gg-Cee" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tX3-Na-U7u"/>
+                        <viewControllerLayoutGuide type="bottom" id="jPZ-GW-TQO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ClE-Sr-Nmw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C3B-v6-ngb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem id="hy3-02-c9W"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e0p-dY-wRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="824" y="-1020"/>
+        </scene>
         <!--Map View Controller-->
         <scene sceneID="JG6-Ll-GNv">
             <objects>
@@ -123,12 +196,6 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lMA-NX-Jez">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixi-lf-ycZ">
-                                <rect key="frame" x="16" y="562" width="81" height="30"/>
-                                <state key="normal" title="my account">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -146,14 +213,13 @@
                             </connections>
                         </barButtonItem>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mak-5P-WlU">
-                            <rect key="frame" x="272" y="7" width="56" height="30"/>
+                            <rect key="frame" x="259" y="7" width="83" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Log Out">
+                            <state key="normal" title="My Account">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="logoutAction:" destination="y0E-Bt-Jx6" eventType="touchUpInside" id="J8z-bZ-Gsv"/>
-                                <segue destination="kq5-Rn-3BB" kind="show" identifier="backToLogIn" id="9iP-Kb-q72"/>
+                                <segue destination="qeZ-7a-IJO" kind="show" id="rSb-qI-uMJ"/>
                             </connections>
                         </button>
                         <barButtonItem key="rightBarButtonItem" title="Make a Post!" id="Sr0-pW-6yi">
@@ -279,7 +345,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="placeholder text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-3A-MkK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="placeholder text" lineBreakMode="tailTruncation" numberOfLines="200" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-3A-MkK">
                                 <rect key="frame" x="0.0" y="85" width="600" height="515"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

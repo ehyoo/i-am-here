@@ -113,10 +113,5 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             }
         }
     }
-    
-    @IBAction func logoutAction(sender: AnyObject) {
-        PFUser.logOut()
-        performSegueWithIdentifier("backToLogIn", sender: self)
-    }
 }
 
