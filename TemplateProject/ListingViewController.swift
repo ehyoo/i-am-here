@@ -16,6 +16,7 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
     let regionRadius: CLLocationDistance = 250
     var currentLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
     var currentLocationConverted = PFGeoPoint(latitude: 0.0, longitude: 0.0)
+    var selectedPost: Post?
     
     @IBOutlet weak var tableView: UITableView!
     let currentUser = PFUser.currentUser()
@@ -69,9 +70,22 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showFullPost" {
+            let fullPostViewController = segue.destinationViewController as! FullPostViewController
+            fullPostViewController.wholePost = selectedPost
+        }
+    }
+    
 }
 
-extension ListingViewController: UITableViewDataSource {
+extension ListingViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedPost = posts[indexPath.row]
+        self.performSegueWithIdentifier("showFullPost", sender: self)
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -81,14 +95,8 @@ extension ListingViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
         
-        let wholePost = posts[indexPath.row] as Post
-        cell.wholePost = wholePost
-        
-            //something
-        
-//        cell.displayNameLabel!.text = posts[indexPath.row].displayName
-//        cell.postTextLabel!.text = posts[indexPath.row].text
-        
+        let postAtIndex = posts[indexPath.row] as Post
+        cell.wholePost = postAtIndex
         
         return cell
     }

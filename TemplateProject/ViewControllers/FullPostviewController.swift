@@ -10,14 +10,31 @@ import Foundation
 import UIKit
 import Parse
 
-class FullPostviewController: UIViewController {
+class FullPostViewController: UIViewController {
 
-    @IBOutlet weak var usernameLabel: UILabel!
+
     @IBOutlet weak var postTextLabel: UILabel!
-    
-    
-    
+    @IBOutlet weak var displayNameLabel: UILabel!
 
+    var wholePost: Post? {
+        didSet {
+            displayPost(wholePost)
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        displayPost(wholePost)
+    }
+    
+    func displayPost(post: Post?) {
+        if let post = post, postTextLabel = postTextLabel, displayNameLabel = displayNameLabel {
+            displayNameLabel.text = post.displayName
+            postTextLabel.text = post.text
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
