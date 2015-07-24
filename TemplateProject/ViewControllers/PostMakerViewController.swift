@@ -21,9 +21,12 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
     var postLocation = PFGeoPoint(latitude: 0.0, longitude: 0.0)
     
     @IBOutlet weak var usernameInput: UITextField!
+
     @IBOutlet weak var postTextView: UITextView!
+
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         //used in background
         self.locationManager.requestAlwaysAuthorization()
@@ -56,10 +59,9 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier{
-        
         switch identifier {
           case "Save":
             savePost()
@@ -67,7 +69,6 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
             println("switching")
             }
         }
-        
     }
     
     func savePost() {
@@ -81,9 +82,6 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
         post["user"] = PFUser.currentUser()
         post.saveInBackground()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    
 }

@@ -11,23 +11,22 @@ import Foundation
 import MapKit
 
 class Marker: NSObject, MKAnnotation {
-    let user: String
-    let title: String
-    let text: String
+    let displayName: String
+    let subtitle: String
     let coordinate: CLLocationCoordinate2D
     
-    init(user: String, title: String, text: String, coordinate: CLLocationCoordinate2D) {
-        self.user = user
-        self.title = title
-        self.text = text
+    init(displayName: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
+        self.displayName = displayName
+        self.subtitle = subtitle
         self.coordinate = coordinate
         
         super.init()
     }
     
-    var subtitle: String {
-        return text
+    var title: String {
+        return displayName
     }
+    
 
     
     

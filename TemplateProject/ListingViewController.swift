@@ -70,23 +70,7 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func unwindToSegue(segue: UIStoryboardSegue) {
-        if let identifier = segue.identifier {
-            switch identifier {
-                case "Save":
-                    println("save")
-                default:
-                    println("switch")
-            }
-        }
-    }
 
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
 
 }

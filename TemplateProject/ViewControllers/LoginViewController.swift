@@ -21,6 +21,7 @@ class LogInViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         println(PFUser.currentUser())
         
         //i have no idea what an UIActivityIndicatorView is

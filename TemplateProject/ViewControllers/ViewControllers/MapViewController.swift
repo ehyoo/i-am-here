@@ -13,7 +13,7 @@ import MapKit
 import CoreLocation
 import Parse
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     var locationManager = CLLocationManager()
     let regionRadius: CLLocationDistance = 250
@@ -21,7 +21,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var posts: [Post] = []
     var markers: [Marker] = []
     
-    @IBOutlet weak var mapView: MKMapView!
+    
+    @IBOutlet weak var mapViewer: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,22 +38,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             self.locationManager.requestAlwaysAuthorization()
             self.locationManager.startUpdatingLocation()
             
-            mapView.delegate = self
+            mapViewer.delegate = self
         }
     }
     
     func makePins(posts: [Post]) {
-        self.mapView.removeAnnotations(self.mapView.annotations as! [MKAnnotation])
+        self.mapViewer.removeAnnotations(self.mapViewer.annotations as! [MKAnnotation])
         self.markers = []
         for x in 0..<self.posts.count {
             
             var lat = self.posts[x].location!.latitude
             var long = self.posts[x].location!.longitude
             let user = self.posts[x].user
-            var marker = Marker(user: "whatever", title: self.posts[x].displayName!, text: self.posts[x].text!, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
+            var marker = Marker(displayName: self.posts[x].displayName!, subtitle: self.posts[x].text!, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
             self.markers.append(marker)
         }
-        self.mapView.addAnnotations(self.markers)
+        self.mapViewer.addAnnotations(self.markers)
     }
     
     func getPostAtLocation(point: PFGeoPoint) {
@@ -99,9 +100,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         //gets map view area
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
             regionRadius * 2.0, regionRadius * 2.0)
-        mapView.setRegion(coordinateRegion, animated: true)
+        mapViewer.setRegion(coordinateRegion, animated: true)
     }
-
+    
+    @IBAction func unwindToSegue(segue: UIStoryboardSegue) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "Save":
+                println("save")
+            default:
+                println("switch")
+            }
+        }
+    }
+    
+    @IBAction func logoutAction(sender: AnyObject) {
+        PFUser.logOut()
+        performSegueWithIdentifier("backToLogIn", sender: self)
+    }
 }
-
 
