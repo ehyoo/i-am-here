@@ -210,7 +210,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="n8l-tv-64p" kind="show" id="Bbo-vj-0t9"/>
+                                                        <segue destination="n8l-tv-64p" kind="show" identifier="showFullPost" id="Bbo-vj-0t9"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -271,10 +271,10 @@
             </objects>
             <point key="canvasLocation" x="740" y="536"/>
         </scene>
-        <!--View Controller-->
+        <!--Full Postview Controller-->
         <scene sceneID="xAS-s7-sai">
             <objects>
-                <viewController id="n8l-tv-64p" sceneMemberID="viewController">
+                <viewController id="n8l-tv-64p" customClass="FullPostviewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9w7-Uf-MVr"/>
                         <viewControllerLayoutGuide type="bottom" id="KLh-bA-s97"/>
@@ -283,21 +283,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user post" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-3A-MkK">
-                                <rect key="frame" x="16" y="190" width="72" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="user name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuj-uU-bce">
+                                <rect key="frame" x="0.0" y="64" width="600" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuj-uU-bce">
-                                <rect key="frame" x="8" y="89" width="81" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="buggy af" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-3A-MkK">
+                                <rect key="frame" x="0.0" y="85" width="600" height="515"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hXc-3A-MkK" firstAttribute="leading" secondItem="kW5-gX-8De" secondAttribute="leading" id="4WM-Am-MWI"/>
+                            <constraint firstItem="hXc-3A-MkK" firstAttribute="top" secondItem="yuj-uU-bce" secondAttribute="bottom" id="Fan-6r-KaK"/>
+                            <constraint firstAttribute="trailing" secondItem="yuj-uU-bce" secondAttribute="trailing" id="PE1-v9-hsM"/>
+                            <constraint firstItem="yuj-uU-bce" firstAttribute="leading" secondItem="kW5-gX-8De" secondAttribute="leading" id="RXe-9k-my5"/>
+                            <constraint firstItem="yuj-uU-bce" firstAttribute="top" secondItem="9w7-Uf-MVr" secondAttribute="bottom" id="gZY-GH-5PA"/>
+                            <constraint firstItem="KLh-bA-s97" firstAttribute="top" secondItem="hXc-3A-MkK" secondAttribute="bottom" id="yJe-CP-MaX"/>
+                            <constraint firstAttribute="trailing" secondItem="hXc-3A-MkK" secondAttribute="trailing" id="zfi-ut-VWp"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="postTextLabel" destination="hXc-3A-MkK" id="qiU-yA-Dv7"/>
+                        <outlet property="usernameLabel" destination="yuj-uU-bce" id="EIL-WH-Pth"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAa-Yp-4wy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

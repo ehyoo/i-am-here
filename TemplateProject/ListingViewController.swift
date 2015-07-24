@@ -69,10 +69,6 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-    
-
-
-
 }
 
 extension ListingViewController: UITableViewDataSource {
@@ -85,10 +81,14 @@ extension ListingViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
         
-        cell.displayNameLabel!.text = posts[indexPath.row].displayName
-        cell.postTextLabel!.text = posts[indexPath.row].text
+        let wholePost = posts[indexPath.row] as Post
+        cell.wholePost = wholePost
         
-        //cell.textLabel!.text = posts[indexPath.row].text
+            //something
+        
+//        cell.displayNameLabel!.text = posts[indexPath.row].displayName
+//        cell.postTextLabel!.text = posts[indexPath.row].text
+        
         
         return cell
     }

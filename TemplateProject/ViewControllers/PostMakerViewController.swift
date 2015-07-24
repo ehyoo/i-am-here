@@ -65,6 +65,8 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
         switch identifier {
           case "Save":
             savePost()
+          case "showFullPost":
+            println("show full post")
           default:
             println("switching")
             }

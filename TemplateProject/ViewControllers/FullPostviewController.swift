@@ -1,20 +1,22 @@
 //
-//  CustomRegisterViewController.swift
+//  FullPostviewController.swift
 //  i_am_here
 //
-//  Created by Edward Yoo on 7/22/15.
+//  Created by Edward Yoo on 7/24/15.
 //  Copyright (c) 2015 Make School. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import Parse
 
-class CustomRegisterViewController: UIViewController {
+class FullPostviewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var postTextLabel: UILabel!
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

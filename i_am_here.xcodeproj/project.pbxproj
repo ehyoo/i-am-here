@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B08AC3A1B62B7E200AC809D /* FullPostviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08AC391B62B7E200AC809D /* FullPostviewController.swift */; };
 		2BE272C11B594E5700BEDE61 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE272C01B594E5700BEDE61 /* Marker.swift */; };
 		2BE272C31B59872A00BEDE61 /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE272C21B59872A00BEDE61 /* VCMapView.swift */; };
 		2BE272C51B5EDE4500BEDE61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE272C41B5EDE4500BEDE61 /* LoginViewController.swift */; };
-		2BE272C71B5FE97500BEDE61 /* CustomRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE272C61B5FE97500BEDE61 /* CustomRegisterViewController.swift */; };
 		2BFF9DE21B55513C001F4FD4 /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF9DE11B55513C001F4FD4 /* ListingViewController.swift */; };
 		2BFF9DE41B555807001F4FD4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF9DE31B555807001F4FD4 /* Post.swift */; };
 		2BFF9DE81B5582C8001F4FD4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF9DE71B5582C8001F4FD4 /* PostTableViewCell.swift */; };
@@ -133,10 +133,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2B08AC391B62B7E200AC809D /* FullPostviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullPostviewController.swift; sourceTree = "<group>"; };
 		2BE272C01B594E5700BEDE61 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		2BE272C21B59872A00BEDE61 /* VCMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
 		2BE272C41B5EDE4500BEDE61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		2BE272C61B5FE97500BEDE61 /* CustomRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRegisterViewController.swift; sourceTree = "<group>"; };
 		2BFF9DE11B55513C001F4FD4 /* ListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListingViewController.swift; path = ../ListingViewController.swift; sourceTree = "<group>"; };
 		2BFF9DE31B555807001F4FD4 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2BFF9DE71B5582C8001F4FD4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 				2BFF9DED1B56D89A001F4FD4 /* PostMakerViewController.swift */,
 				2BFF9DE11B55513C001F4FD4 /* ListingViewController.swift */,
 				2BE272C41B5EDE4500BEDE61 /* LoginViewController.swift */,
-				2BE272C61B5FE97500BEDE61 /* CustomRegisterViewController.swift */,
+				2B08AC391B62B7E200AC809D /* FullPostviewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -475,8 +475,8 @@
 				624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */,
 				624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */,
 				2BE272C31B59872A00BEDE61 /* VCMapView.swift in Sources */,
+				2B08AC3A1B62B7E200AC809D /* FullPostviewController.swift in Sources */,
 				624262C31B4460CB00005CE3 /* ErrorHandling.swift in Sources */,
-				2BE272C71B5FE97500BEDE61 /* CustomRegisterViewController.swift in Sources */,
 				2BFF9DE21B55513C001F4FD4 /* ListingViewController.swift in Sources */,
 				2BFF9DE41B555807001F4FD4 /* Post.swift in Sources */,
 				2BFF9DEE1B56D89A001F4FD4 /* PostMakerViewController.swift in Sources */,
