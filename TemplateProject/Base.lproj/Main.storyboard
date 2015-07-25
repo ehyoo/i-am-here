@@ -157,20 +157,38 @@
             </objects>
             <point key="canvasLocation" x="172" y="-1020"/>
         </scene>
-        <!--Table View Controller-->
+        <!--My Posts Listing View Controller-->
         <scene sceneID="nSV-Su-3Nn">
             <objects>
-                <tableViewController id="Ehd-oH-ANe" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" id="q1C-Hf-3J9">
+                <tableViewController id="Ehd-oH-ANe" customClass="MyPostsListingViewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="22" sectionFooterHeight="22" id="q1C-Hf-3J9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="56" id="kcw-EH-9XK">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="104" id="kcw-EH-9XK" customClass="UserPostTableViewCell" customModule="i_am_here" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kcw-EH-9XK" id="6ii-sQ-Obb">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user display name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="job-LQ-NS2">
+                                            <rect key="frame" x="21" y="16" width="431" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user post text" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05O-eT-sMp">
+                                            <rect key="frame" x="21" y="62" width="494" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="displayNameLabel" destination="job-LQ-NS2" id="3Ss-aI-jkm"/>
+                                    <outlet property="postTextLabel" destination="05O-eT-sMp" id="bfN-gj-4uY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -178,10 +196,13 @@
                             <outlet property="delegate" destination="Ehd-oH-ANe" id="3M8-F1-meI"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="n8l-tv-64p" kind="show" identifier="showFullPostFromUser" id="G8e-l2-7HB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Apu-u9-5fu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="-1020"/>
+            <point key="canvasLocation" x="904" y="-1020"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="JG6-Ll-GNv">
@@ -452,4 +473,7 @@
             <point key="canvasLocation" x="85" y="-346"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="G8e-l2-7HB"/>
+    </inferredMetricsTieBreakers>
 </document>
