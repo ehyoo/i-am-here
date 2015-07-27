@@ -21,8 +21,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var posts: [Post] = []
     var markers: [Marker] = []
     
-    
     @IBOutlet weak var mapViewer: MKMapView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +42,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        println(currentLocation)
+    }
+
+    
     func makePins(posts: [Post]) {
         self.mapViewer.removeAnnotations(self.mapViewer.annotations as! [MKAnnotation])
         self.markers = []
@@ -56,7 +61,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         self.mapViewer.addAnnotations(self.markers)
     }
     
-    func getPostAtLocation(point: PFGeoPoint) {
+    func getPostsAtLocationAndMakePins(point: PFGeoPoint) {
         //function that queries puts into array, then makes pin.
         let postsQuery = Post.query()
         postsQuery!.orderByDescending("createdAt")
@@ -71,6 +76,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 for object in result! {
                     self.posts.append(object as! Post)
                 }
+                self.makePins(self.posts) //UTTER FEAR
             }
         }
     }
@@ -83,10 +89,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         var clLat = currentLocation.coordinate.latitude
         var clLong = currentLocation.coordinate.longitude
         var refPoint = PFGeoPoint(latitude: clLat, longitude: clLong)
-        getPostAtLocation(refPoint)
-        makePins(posts)
         
-        centerMapOnLocation(currentLocation)
+        if posts.count == 0 {
+            println(posts.count)
+            getPostsAtLocationAndMakePins(refPoint)
+            centerMapOnLocation(currentLocation)
+        } else {
+            println("ayy lmao")
+        }
+        
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
@@ -113,5 +124,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             }
         }
     }
+    
 }
 
