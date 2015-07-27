@@ -253,6 +253,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapViewer" destination="lMA-NX-Jez" id="xfw-IN-dTD"/>
+                        <segue destination="n8l-tv-64p" kind="show" identifier="showFullPostFromAnnotation" id="mBL-g7-CCx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUQ-hq-lQY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -482,6 +483,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="G8e-l2-7HB"/>
+        <segue reference="mBL-g7-CCx"/>
     </inferredMetricsTieBreakers>
 </document>

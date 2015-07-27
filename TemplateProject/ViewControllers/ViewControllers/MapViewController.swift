@@ -20,6 +20,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var currentLocation = CLLocation(latitude: 37.3318, longitude: -122.0312)
     var posts: [Post] = []
     var markers: [Marker] = []
+    var selectedPost = Post()
     
     @IBOutlet weak var mapViewer: MKMapView!
     
@@ -41,11 +42,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             mapViewer.delegate = self
         }
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        println(currentLocation)
-    }
-
     
     func makePins(posts: [Post]) {
         self.mapViewer.removeAnnotations(self.mapViewer.annotations as! [MKAnnotation])
@@ -93,7 +89,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         if posts.count == 0 {
             println(posts.count)
             getPostsAtLocationAndMakePins(refPoint)
-            centerMapOnLocation(currentLocation)
+            centerMapOnLocation(currentLocation) //we can adjust this such that it snaps back to centre later. 
+            //in fact you have to put that in the else statement so it can follow the user but hey we'll see.
         } else {
             println("ayy lmao")
         }

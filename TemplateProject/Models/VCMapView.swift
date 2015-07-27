@@ -8,6 +8,7 @@
 
 import Foundation
 import MapKit
+import CoreLocation
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
@@ -27,9 +28,22 @@ extension MapViewController: MKMapViewDelegate {
         }
         return nil
     }
-    /*
-    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
-        //we have to make it such that it shows a different screen with the full thing
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showFullPostFromAnnotation" {
+            let fullPostViewController = segue.destinationViewController as! FullPostViewController
+
+            fullPostViewController.wholePost = selectedPost
+        }
     }
-    */
+    
+    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+        performSegueWithIdentifier("showFullPostFromAnnotation", sender: self)
+    }
+    
+    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+        selectedPost.displayName = view.annotation.title!
+        selectedPost.text = view.annotation.subtitle!
+    }
+    
 }

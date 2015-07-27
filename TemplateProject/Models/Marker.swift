@@ -26,8 +26,4 @@ class Marker: NSObject, MKAnnotation {
     var title: String {
         return displayName
     }
-    
-
-    
-    
 }
