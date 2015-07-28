@@ -245,7 +245,7 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		624262B11B4460CB00005CE3 /* TemplateProject */ = {
+		624262B11B4460CB00005CE3 /* i_am_here */ = {
 			isa = PBXGroup;
 			children = (
 				2BFF9DE91B558DF2001F4FD4 /* ViewControllers */,
@@ -259,6 +259,7 @@
 				624262BC1B4460CB00005CE3 /* TemplateProject-Bridging-Header.h */,
 				624262B31B4460CB00005CE3 /* LaunchScreen.xib */,
 			);
+			name = i_am_here;
 			path = TemplateProject;
 			sourceTree = "<group>";
 		};
@@ -322,7 +323,7 @@
 		62C8C1D71B06BD6500DC3EA7 = {
 			isa = PBXGroup;
 			children = (
-				624262B11B4460CB00005CE3 /* TemplateProject */,
+				624262B11B4460CB00005CE3 /* i_am_here */,
 				62551B621B06BF33000913E4 /* Frameworks */,
 				62C8C1E11B06BD6500DC3EA7 /* Products */,
 			);
