@@ -21,6 +21,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var posts: [Post] = []
     var markers: [Marker] = []
     var selectedPost = Post()
+    var dateString: String?
     
     @IBOutlet weak var mapViewer: MKMapView!
     
@@ -48,10 +49,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         self.markers = []
         for x in 0..<self.posts.count {
             
-            var lat = self.posts[x].location!.latitude
-            var long = self.posts[x].location!.longitude
-            let user = self.posts[x].user
-            var marker = Marker(displayName: self.posts[x].displayName!, subtitle: self.posts[x].text!, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
+        let marker = Marker(post: self.posts[x])
+//            var lat = self.posts[x].location!.latitude
+//            var long = self.posts[x].location!.longitude
+//            let user = self.posts[x].user
+//            var marker = Marker(displayName: self.posts[x].displayName!, subtitle: dateToString(self.posts[x].createdAt!), text: self.posts[x].text!, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
             self.markers.append(marker)
         }
         self.mapViewer.addAnnotations(self.markers)
@@ -91,8 +93,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             getPostsAtLocationAndMakePins(refPoint)
             centerMapOnLocation(currentLocation) //we can adjust this such that it snaps back to centre later. 
             //in fact you have to put that in the else statement so it can follow the user but hey we'll see.
-        } else {
-            println("ayy lmao")
         }
         
     }
@@ -121,6 +121,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             }
         }
     }
+    
+    func dateToString(date: NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy 'at' HH:mm"
+        dateString = dateFormatter.stringFromDate(date)
+        return dateString!
+    }
+
     
 }
 

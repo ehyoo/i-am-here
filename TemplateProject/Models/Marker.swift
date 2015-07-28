@@ -9,21 +9,47 @@
 
 import Foundation
 import MapKit
+import Parse
 
 class Marker: NSObject, MKAnnotation {
-    let displayName: String
-    let subtitle: String
-    let coordinate: CLLocationCoordinate2D
+    var post: Post
+    var displayName: String
+    var subtitle: String
+    var text: String
+    var date: NSDate
+    var coordinate: CLLocationCoordinate2D
+    var dateString: String?
+
     
-    init(displayName: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
-        self.displayName = displayName
-        self.subtitle = subtitle
-        self.coordinate = coordinate
+    init(post: Post) {
+        self.post = post
+        displayName = post.displayName!
+        subtitle = ""
+        text = post.text!
+        coordinate = CLLocationCoordinate2D()
+        date = post.createdAt!
         
         super.init()
+        
+        subtitle = self.dateToString(post.createdAt!)
+        coordinate = self.convertToCLLocation(post.location!)
     }
+    
     
     var title: String {
         return displayName
     }
+    
+    func dateToString(date: NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy 'at' HH:mm"
+        dateString = dateFormatter.stringFromDate(date)
+        return dateString!
+    }
+    
+    func convertToCLLocation (point: PFGeoPoint) -> CLLocationCoordinate2D {
+        var convertedCoordinate = CLLocationCoordinate2DMake(point.latitude, point.longitude)
+        return convertedCoordinate
+    }
+    
 }

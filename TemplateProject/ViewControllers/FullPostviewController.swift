@@ -15,7 +15,10 @@ class FullPostViewController: UIViewController {
 
     @IBOutlet weak var postTextLabel: UILabel!
     @IBOutlet weak var displayNameLabel: UILabel!
-
+    @IBOutlet weak var dateLabel: UILabel!
+    var dateString: String?
+    var postCreatedDate: String?
+    
     var wholePost: Post? {
         didSet {
             displayPost(wholePost)
@@ -31,9 +34,17 @@ class FullPostViewController: UIViewController {
         if let post = post, postTextLabel = postTextLabel, displayNameLabel = displayNameLabel {
             displayNameLabel.text = post.displayName
             postTextLabel.text = post.text
+            dateLabel.text = dateToString(post.createdAt!)
         }
     }
     
+    func dateToString(date: NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy 'at' HH:mm"
+        dateString = dateFormatter.stringFromDate(date)
+        return dateString!
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

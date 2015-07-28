@@ -42,8 +42,10 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
-        selectedPost.displayName = view.annotation.title!
-        selectedPost.text = view.annotation.subtitle!
+        let annotationMarker: Marker = view.annotation as! Marker
+        
+        selectedPost = annotationMarker.post
+
     }
     
 }
