@@ -8,8 +8,13 @@
 
 import UIKit
 import Parse
+import FBSDKCoreKit
+import ParseUI
 
 class MyAccountViewController: UIViewController {
+    
+    let loginViewController = PFLogInViewController()
+    var parseLoginHelper: ParseLoginHelper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +28,9 @@ class MyAccountViewController: UIViewController {
     }
     
     @IBAction func logoutAction(sender: AnyObject) {
-        PFUser.logOut()
-        performSegueWithIdentifier("backToLogIn", sender: self)
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.logOut()
+        //we leave off here
     }
     
     

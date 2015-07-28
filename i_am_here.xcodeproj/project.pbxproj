@@ -13,7 +13,6 @@
 		2B6140ED1B64537800E5470B /* UserPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6140EC1B64537800E5470B /* UserPostTableViewCell.swift */; };
 		2BE272C11B594E5700BEDE61 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE272C01B594E5700BEDE61 /* Marker.swift */; };
 		2BE272C31B59872A00BEDE61 /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE272C21B59872A00BEDE61 /* VCMapView.swift */; };
-		2BE272C51B5EDE4500BEDE61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE272C41B5EDE4500BEDE61 /* LoginViewController.swift */; };
 		2BFF9DE21B55513C001F4FD4 /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF9DE11B55513C001F4FD4 /* ListingViewController.swift */; };
 		2BFF9DE41B555807001F4FD4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF9DE31B555807001F4FD4 /* Post.swift */; };
 		2BFF9DE81B5582C8001F4FD4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF9DE71B5582C8001F4FD4 /* PostTableViewCell.swift */; };
@@ -142,7 +141,6 @@
 		2B6140EC1B64537800E5470B /* UserPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPostTableViewCell.swift; sourceTree = "<group>"; };
 		2BE272C01B594E5700BEDE61 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		2BE272C21B59872A00BEDE61 /* VCMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
-		2BE272C41B5EDE4500BEDE61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2BFF9DE11B55513C001F4FD4 /* ListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListingViewController.swift; path = ../ListingViewController.swift; sourceTree = "<group>"; };
 		2BFF9DE31B555807001F4FD4 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2BFF9DE71B5582C8001F4FD4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 				2BFF9DED1B56D89A001F4FD4 /* PostMakerViewController.swift */,
 				2BFF9DE11B55513C001F4FD4 /* ListingViewController.swift */,
 				2B6140EA1B644EDB00E5470B /* MyPostsListingViewController.swift */,
-				2BE272C41B5EDE4500BEDE61 /* LoginViewController.swift */,
 				2B08AC391B62B7E200AC809D /* FullPostviewController.swift */,
 				2B6140E81B644DD600E5470B /* MyAccountViewController.swift */,
 			);
@@ -495,7 +492,6 @@
 				2BFF9DE81B5582C8001F4FD4 /* PostTableViewCell.swift in Sources */,
 				2BFF9DF11B56FDEF001F4FD4 /* MapViewController.swift in Sources */,
 				2BE272C11B594E5700BEDE61 /* Marker.swift in Sources */,
-				2BE272C51B5EDE4500BEDE61 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
