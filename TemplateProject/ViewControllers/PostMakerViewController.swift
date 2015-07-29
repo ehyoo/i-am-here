@@ -90,11 +90,13 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
         post["displayName"] = usernameInput.text
         post["user"] = PFUser.currentUser()
         
-        //saving post image
-        let imageData = UIImageJPEGRepresentation(selectedImage!, 1.0)
-        let imageFile = PFFile(data: imageData)
-        imageFile.save()
-        post["imageFile"] = imageFile
+        //saving post image with error checking
+        if selectedImage != nil {
+            let imageData = UIImageJPEGRepresentation(selectedImage!, 1.0)
+            let imageFile = PFFile(data: imageData)
+            imageFile.save()
+            post["imageFile"] = imageFile
+        }
         
         //finally save the post
         post.saveInBackground()
