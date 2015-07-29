@@ -38,11 +38,12 @@ class FullPostViewController: UIViewController {
             postTextLabel.text = post.text
             dateLabel.text = dateToString(post.createdAt!)
             
-            let data = post.imageFile.getData()
-            var viewImage = UIImage(data: data!, scale: 1.0)
-            
-            postImageView.image = viewImage
-            
+            if post.imageFile.getData() != nil {
+                let data = post.imageFile.getData()
+                var viewImage = UIImage(data: data!, scale: 1.0)
+                
+                postImageView.image = viewImage
+            }
         }
     }
     
