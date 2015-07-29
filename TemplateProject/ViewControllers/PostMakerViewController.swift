@@ -19,11 +19,14 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
     let regionRadius: CLLocationDistance = 250
     var currentLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
     var postLocation = PFGeoPoint(latitude: 0.0, longitude: 0.0)
+    var photoTakingHelper: PhotoTakingHelper?
+    var selectedImage: UIImage?
     
     @IBOutlet weak var usernameInput: UITextField!
 
     @IBOutlet weak var postTextView: UITextView!
 
+    @IBOutlet weak var postImageView: UIImageView!
     
     override func viewDidLoad() {
         
@@ -76,14 +79,38 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
     func savePost() {
         //function that saves post
         let post = PFObject(className: "Post")
+        
+        //conversion of coordinates
         postLocation.longitude = currentLocation.coordinate.longitude
         postLocation.latitude = currentLocation.coordinate.latitude
+        
+        //post text stuff
         post["text"] = postTextView.text
         post["location"] = postLocation
         post["displayName"] = usernameInput.text
         post["user"] = PFUser.currentUser()
+        
+        //saving post image
+        let imageData = UIImageJPEGRepresentation(selectedImage!, 1.0)
+        let imageFile = PFFile(data: imageData)
+        imageFile.save()
+        post["imageFile"] = imageFile
+        
+        //finally save the post
         post.saveInBackground()
     }
     
+    //why don't we bind the photo to a UIImageView and then save it to Parse like that.
+    
+    @IBAction func uploadPhotoAction(sender: AnyObject) {
+        takePhoto()
+    }
+    
+    func takePhoto() {
+        photoTakingHelper = PhotoTakingHelper(viewController: self) { (image: UIImage?) in
+            self.postImageView.image = image
+            self.selectedImage = image!
+        }
+    }
     
 }
