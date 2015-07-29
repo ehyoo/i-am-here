@@ -13,10 +13,11 @@ import Parse
 class FullPostViewController: UIViewController {
 
 
-    @IBOutlet weak var postTextLabel: UILabel!
+
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var postTextLabel: UITextView!
     
     var dateString: String?
     var postCreatedDate: String?
