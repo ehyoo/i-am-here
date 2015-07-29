@@ -266,18 +266,21 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="date placeholder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruw-Un-r7D">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date placeholder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruw-Un-r7D">
                                 <rect key="frame" x="16" y="93" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="post placeholder" lineBreakMode="tailTruncation" numberOfLines="200" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-3A-MkK">
-                                <rect key="frame" x="16" y="114" width="568" height="486"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="post placeholder" lineBreakMode="tailTruncation" numberOfLines="200" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-3A-MkK">
+                                <rect key="frame" x="16" y="122" width="568" height="164"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SnM-A9-UCk">
+                                <rect key="frame" x="11" y="268" width="240" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -287,7 +290,6 @@
                             <constraint firstItem="Ruw-Un-r7D" firstAttribute="leading" secondItem="kW5-gX-8De" secondAttribute="leadingMargin" id="C27-Gq-gJN"/>
                             <constraint firstItem="hXc-3A-MkK" firstAttribute="leading" secondItem="kW5-gX-8De" secondAttribute="leadingMargin" id="Glg-wA-u8g"/>
                             <constraint firstItem="yuj-uU-bce" firstAttribute="leading" secondItem="kW5-gX-8De" secondAttribute="leadingMargin" id="Lhf-t9-Jve"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="hXc-3A-MkK" secondAttribute="bottom" id="W5P-z4-Pnd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hXc-3A-MkK" secondAttribute="trailing" id="hxd-3C-jYj"/>
                             <constraint firstItem="Ruw-Un-r7D" firstAttribute="top" secondItem="yuj-uU-bce" secondAttribute="bottom" constant="8" id="mQ5-0e-UkQ"/>
                             <constraint firstItem="hXc-3A-MkK" firstAttribute="top" secondItem="Ruw-Un-r7D" secondAttribute="bottom" id="spf-xz-bg9"/>
@@ -296,6 +298,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="Ruw-Un-r7D" id="qat-M6-qtV"/>
                         <outlet property="displayNameLabel" destination="yuj-uU-bce" id="s1K-Mo-78E"/>
+                        <outlet property="postImageView" destination="SnM-A9-UCk" id="UvY-kE-0tk"/>
                         <outlet property="postTextLabel" destination="hXc-3A-MkK" id="qiU-yA-Dv7"/>
                     </connections>
                 </viewController>

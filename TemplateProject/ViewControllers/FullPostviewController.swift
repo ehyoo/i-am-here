@@ -16,6 +16,8 @@ class FullPostViewController: UIViewController {
     @IBOutlet weak var postTextLabel: UILabel!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var postImageView: UIImageView!
+    
     var dateString: String?
     var postCreatedDate: String?
     
@@ -31,10 +33,16 @@ class FullPostViewController: UIViewController {
     }
     
     func displayPost(post: Post?) {
-        if let post = post, postTextLabel = postTextLabel, displayNameLabel = displayNameLabel {
+        if let post = post, postTextLabel = postTextLabel, displayNameLabel = displayNameLabel, postImageView = postImageView {
             displayNameLabel.text = post.displayName
             postTextLabel.text = post.text
             dateLabel.text = dateToString(post.createdAt!)
+            
+            let data = post.imageFile.getData()
+            var viewImage = UIImage(data: data!, scale: 1.0)
+            
+            postImageView.image = viewImage
+            
         }
     }
     
