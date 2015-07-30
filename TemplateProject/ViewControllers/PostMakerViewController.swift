@@ -13,7 +13,7 @@ import CoreLocation
 import Parse
 
 
-class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
+class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     
     var locationManager = CLLocationManager()
     let regionRadius: CLLocationDistance = 250
@@ -23,10 +23,10 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
     var selectedImage: UIImage?
     
     @IBOutlet weak var usernameInput: UITextField!
-
     @IBOutlet weak var postTextView: UITextView!
-
     @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var uploadButton: UIButton!
+    @IBOutlet weak var infoLabel: UILabel!
     
     override func viewDidLoad() {
         
@@ -37,14 +37,25 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
         //used in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
+        //hide info label
+        infoLabel.hidden = true
+        
+        //if image view is tapped, show the image selector.
+        var UITapRecognizer = UITapGestureRecognizer(target: self, action: "tappedImage:")
+        UITapRecognizer.delegate = self
+        self.postImageView.addGestureRecognizer(UITapRecognizer)
+        self.postImageView.userInteractionEnabled = true
+        
+        //refreshing and updating location when view loads
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
             self.locationManager.requestAlwaysAuthorization()
             self.locationManager.startUpdatingLocation()
         }
+        println(postImageView.image)
         
-        //autofill the post so that it shows their username. 
+        //autofill the post so that it shows their username.
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -102,16 +113,25 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate {
         post.saveInBackground()
     }
     
-    //why don't we bind the photo to a UIImageView and then save it to Parse like that.
-    
-    @IBAction func uploadPhotoAction(sender: AnyObject) {
+    func tappedImage(image: AnyObject) {
+        //image view is tapped
+        takePhoto()
+    }
+    @IBAction func uploadButtonAction(sender: AnyObject) {
+        //upload button is tapped
         takePhoto()
     }
     
     func takePhoto() {
+        //makes an instance of PhotoTakingHelper and returns image
         photoTakingHelper = PhotoTakingHelper(viewController: self) { (image: UIImage?) in
             self.postImageView.image = image
             self.selectedImage = image!
+            
+            if image != nil {
+                self.uploadButton.hidden = true
+                self.infoLabel.hidden = false
+            }
         }
     }
     
