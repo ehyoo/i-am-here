@@ -77,7 +77,7 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier{
         switch identifier {
-          case "Save":
+          case "postRewindSegue":
             savePost()
           case "showFullPost":
             println("show full post")

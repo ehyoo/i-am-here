@@ -116,6 +116,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             switch identifier {
             case "Save":
                 println("save")
+            case "Post!":
+                println("posting and toasting")
             default:
                 println("switch")
             }
