@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Make School. All rights reserved.
 //
 
-//you have to fix that thing for the text resizing for the keyboard and stuff.
-
 import UIKit
 import CoreLocation
 import Parse
@@ -45,6 +43,7 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
         UITapRecognizer.delegate = self
         self.postImageView.addGestureRecognizer(UITapRecognizer)
         self.postImageView.userInteractionEnabled = true
+        
         
         //refreshing and updating location when view loads
         if CLLocationManager.locationServicesEnabled() {
@@ -115,7 +114,16 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
     
     func tappedImage(image: AnyObject) {
         //image view is tapped
-        takePhoto()
+        if self.uploadButton.hidden == true {
+            takePhoto()
+        } else {
+            self.postTextView.endEditing(true)
+            //dismiss your shit
+        }
+        
+        //also dismisses the keyboard 
+        
+        
     }
     @IBAction func uploadButtonAction(sender: AnyObject) {
         //upload button is tapped

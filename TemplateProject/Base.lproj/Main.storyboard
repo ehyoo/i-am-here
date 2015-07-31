@@ -65,22 +65,41 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kcw-EH-9XK" id="6ii-sQ-Obb">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user display name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="job-LQ-NS2">
-                                            <rect key="frame" x="21" y="16" width="431" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="user display name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="job-LQ-NS2">
+                                            <rect key="frame" x="8" y="8" width="592" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="user post text" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05O-eT-sMp">
+                                            <rect key="frame" x="8" y="50" width="584" height="53"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user post text" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05O-eT-sMp">
-                                            <rect key="frame" x="21" y="62" width="494" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="user post date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BE7-p3-AHO">
+                                            <rect key="frame" x="8" y="31" width="592" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="BE7-p3-AHO" firstAttribute="leading" secondItem="6ii-sQ-Obb" secondAttribute="leading" constant="8" id="6EI-5V-ukk"/>
+                                        <constraint firstItem="job-LQ-NS2" firstAttribute="top" secondItem="6ii-sQ-Obb" secondAttribute="top" constant="8" id="D1p-ym-Bl8"/>
+                                        <constraint firstAttribute="trailing" secondItem="job-LQ-NS2" secondAttribute="trailing" id="Dao-9R-YjA"/>
+                                        <constraint firstAttribute="trailing" secondItem="BE7-p3-AHO" secondAttribute="trailing" id="VBH-jw-o4y"/>
+                                        <constraint firstItem="BE7-p3-AHO" firstAttribute="top" secondItem="job-LQ-NS2" secondAttribute="bottom" constant="2" id="YcA-Wl-dbH"/>
+                                        <constraint firstItem="job-LQ-NS2" firstAttribute="leading" secondItem="6ii-sQ-Obb" secondAttribute="leading" constant="8" id="c5c-eB-ysx"/>
+                                        <constraint firstItem="05O-eT-sMp" firstAttribute="top" secondItem="BE7-p3-AHO" secondAttribute="bottom" constant="2" id="jHW-7R-PtB"/>
+                                        <constraint firstAttribute="trailing" secondItem="05O-eT-sMp" secondAttribute="trailing" constant="8" id="lZi-2k-3uI"/>
+                                        <constraint firstAttribute="bottom" secondItem="05O-eT-sMp" secondAttribute="bottom" id="wmc-uh-jOg"/>
+                                        <constraint firstItem="05O-eT-sMp" firstAttribute="leading" secondItem="6ii-sQ-Obb" secondAttribute="leading" constant="8" id="xb9-ES-9vW"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="displayNameLabel" destination="job-LQ-NS2" id="3Ss-aI-jkm"/>
+                                    <outlet property="postDateLabel" destination="BE7-p3-AHO" id="p3F-L8-JAF"/>
                                     <outlet property="postTextLabel" destination="05O-eT-sMp" id="bfN-gj-4uY"/>
                                 </connections>
                             </tableViewCell>
@@ -329,8 +348,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="display name placeholder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuj-uU-bce">
-                                <rect key="frame" x="16" y="79" width="568" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="display name placeholder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuj-uU-bce">
+                                <rect key="frame" x="16" y="35" width="568" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8Oz-Ge-KU2"/>
                                 </constraints>
@@ -338,17 +357,17 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SnM-A9-UCk">
-                                <rect key="frame" x="16" y="305" width="568" height="287"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SnM-A9-UCk">
+                                <rect key="frame" x="16" y="261" width="568" height="331"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="date placeholder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruw-Un-r7D">
-                                <rect key="frame" x="16" y="108" width="568" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date placeholder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruw-Un-r7D">
+                                <rect key="frame" x="16" y="64" width="568" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="placeholder text for post" translatesAutoresizingMaskIntoConstraints="NO" id="H7M-4w-OjI">
-                                <rect key="frame" x="9" y="140" width="568" height="150"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="placeholder text for post" translatesAutoresizingMaskIntoConstraints="NO" id="H7M-4w-OjI">
+                                <rect key="frame" x="14" y="96" width="570" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="7Iv-2v-K0B"/>
                                     <constraint firstAttribute="height" constant="100" id="cdX-2s-DBm"/>
@@ -434,7 +453,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gsz-Sc-jMf">
                                 <rect key="frame" x="0.0" y="254" width="600" height="237"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add an image by tapping on the box below!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpc-QV-F9U">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select a different image by tapping the image below!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpc-QV-F9U">
                                 <rect key="frame" x="16" y="235" width="335" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.49711963383838387" green="0.49711963383838387" blue="0.49711963383838387" alpha="1" colorSpace="calibratedRGB"/>
@@ -541,6 +560,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Ayy-uI-w1b"/>
         <segue reference="IuN-NU-fXm"/>
-        <segue reference="Cnt-hU-B8d"/>
+        <segue reference="G8e-l2-7HB"/>
     </inferredMetricsTieBreakers>
 </document>

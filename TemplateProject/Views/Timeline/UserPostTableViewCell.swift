@@ -14,6 +14,8 @@ class UserPostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postTextLabel: UILabel!
     @IBOutlet weak var displayNameLabel: UILabel!
+    @IBOutlet weak var postDateLabel: UILabel!
+    var dateString: String?
     
     var wholePost: Post? {
         didSet {
@@ -22,10 +24,18 @@ class UserPostTableViewCell: UITableViewCell {
     }
     
     func displayPost(post: Post?) {
-        if let post = post, postTextLabel = postTextLabel, displayNameLabel = displayNameLabel {
+        if let post = post, postTextLabel = postTextLabel, displayNameLabel = displayNameLabel, postDateLabel = postDateLabel {
             displayNameLabel.text = post.displayName
             postTextLabel.text = post.text
+            postDateLabel.text = dateToString(post.createdAt!)
         }
+    }
+    
+    func dateToString(date: NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy 'at' HH:mm"
+        dateString = dateFormatter.stringFromDate(date)
+        return dateString!
     }
     
     override func awakeFromNib() {
