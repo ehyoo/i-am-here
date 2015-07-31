@@ -92,13 +92,27 @@ extension ListingViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
-        
+
+// what i want but is broken
         let postAtIndex = posts[indexPath.row] as Post
-        cell.wholePost = postAtIndex
         
-        return cell
+        if postAtIndex.imageFile.getData() != nil {
+            var cellWithImage = tableView.dequeueReusableCellWithIdentifier("PostCellWithImage") as! PostTableWithImageViewCell
+            cellWithImage.wholePost = postAtIndex
+            return cellWithImage
+        } else {
+            var cellWithoutImage = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
+            cellWithoutImage.wholePost = postAtIndex
+            return cellWithoutImage
+        }
+    
+// working but not what i want
+//        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
+//        
+//        let postAtIndex = posts[indexPath.row] as Post
+//        cell.wholePost = postAtIndex
+//        
+//        return cell
     }
     
 }
