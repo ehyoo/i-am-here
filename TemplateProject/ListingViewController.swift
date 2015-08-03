@@ -21,6 +21,12 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var tableView: UITableView!
     let currentUser = PFUser.currentUser()
     
+    override func viewDidLoad() {
+        //incredibly hacky way to get around the two views using the segmented control
+        //hides the back button 
+        self.navigationItem.setHidesBackButton(true, animated: true)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         

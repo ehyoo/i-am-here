@@ -27,6 +27,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     
     override func viewDidLoad() {
+        
+        //incredibly hacky way to switch between the two views
+        //hides the back button
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
         super.viewDidLoad()
         //used in background
         self.locationManager.requestAlwaysAuthorization()

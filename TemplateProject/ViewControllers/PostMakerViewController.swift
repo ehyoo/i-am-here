@@ -115,6 +115,7 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
     func tappedImage(image: AnyObject) {
         //image view is tapped
         if self.uploadButton.hidden == true {
+            self.postTextView.endEditing(true)
             takePhoto()
         } else {
             self.postTextView.endEditing(true)
@@ -124,6 +125,11 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
         //also dismisses the keyboard 
         
         
+    }
+    
+    @IBAction func postButtonAction(sender: AnyObject) {
+        savePost()
+        self.tabBarController?.selectedIndex = 0
     }
     @IBAction func uploadButtonAction(sender: AnyObject) {
         //upload button is tapped
