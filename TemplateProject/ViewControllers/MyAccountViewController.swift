@@ -15,11 +15,25 @@ class MyAccountViewController: UIViewController {
     
     let loginViewController = PFLogInViewController()
     var parseLoginHelper: ParseLoginHelper!
+    var posts: [Post] = []
+    var postCount: Int = 0
     
+    @IBOutlet weak var postCountLabel: UILabel!
+    
+    @IBOutlet weak var nameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        //query user posts
+        let postsQuery = Post.query()
+        postsQuery!.orderByDescending("createdAt")
+        postsQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
+        postsQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
+            self.posts = result as? [Post] ?? []
+            self.postCount = self.posts.count
+            self.postCountLabel.text = "You have made \(self.postCount) posts!"
+        }
+        nameLabel.text = "Hello, \(PFUser.currentUser()!.username!)!"
     }
     
     override func didReceiveMemoryWarning() {

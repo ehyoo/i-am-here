@@ -25,8 +25,14 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var userLocationLabel: UILabel!
     
     override func viewDidLoad() {
+        
+        //some design stuff
+        
+        self.postTextView.layer.borderColor = UIColor.grayColor().CGColor
+        self.postTextView.layer.borderWidth = 1.0
         
         super.viewDidLoad()
         //used in background
@@ -52,15 +58,27 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
             self.locationManager.requestAlwaysAuthorization()
             self.locationManager.startUpdatingLocation()
         }
-        println(postImageView.image)
         
-        //autofill the post so that it shows their username.
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        //current location update and convert to pfgeopoint
         var currentLongitude: CLLocationDegrees = manager.location.coordinate.longitude
         var currentLatitude: CLLocationDegrees = manager.location.coordinate.latitude
         currentLocation = CLLocation(latitude: currentLatitude, longitude: currentLongitude)
+        
+        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: { (placemarks, error) -> Void in
+            
+            if error != nil {
+                println(error.localizedDescription)
+                return
+            }
+            
+            if placemarks.count > 0 {
+                let pm = placemarks[0] as! CLPlacemark
+                self.displayLocation(pm)
+            }
+        })
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
@@ -148,5 +166,14 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
             }
         }
     }
+    
+    func displayLocation(placemark: CLPlacemark) {
+        //stops updating location (yo we gotta implement this in the other thigns) 
+        self.locationManager.stopUpdatingLocation()
+        
+        //shows location in the label 
+        userLocationLabel.text = "\(placemark.locality), \(placemark.administrativeArea)"
+    }
+    
     
 }
