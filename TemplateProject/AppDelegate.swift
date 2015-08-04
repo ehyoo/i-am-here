@@ -40,6 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    
+    //spaghetti design
+    UINavigationBar.appearance().barTintColor = StyleConstants.customGreenColor
+    UINavigationBar.appearance().tintColor = StyleConstants.customWhitishColor
+    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    UITabBar.appearance().barTintColor = StyleConstants.customGreenColor
+    UITabBar.appearance().tintColor = StyleConstants.customWhitishColor
+    
     //set up Parse SDK
     Post.registerSubclass()
     Parse.setApplicationId("GWBnyQuwxythsZwR16EWZZjdm0ziLxcBLx6a8qlw", clientKey: "BPmTkqE73RBdestq0UCUXUpq2OmdEUf94eTiTjBm")

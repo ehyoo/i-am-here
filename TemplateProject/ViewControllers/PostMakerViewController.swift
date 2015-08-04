@@ -31,9 +31,12 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
         
         //some design stuff
         
-        self.postTextView.layer.borderColor = UIColor.grayColor().CGColor
+        self.postTextView.layer.borderColor = StyleConstants.borderColor.CGColor
         self.postTextView.layer.borderWidth = 1.0
+        self.postTextView.layer.cornerRadius = 5.0
+        self.postTextView.clipsToBounds = true
         
+        //then the other stuff
         super.viewDidLoad()
         //used in background
         self.locationManager.requestAlwaysAuthorization()
@@ -172,7 +175,16 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
         self.locationManager.stopUpdatingLocation()
         
         //shows location in the label 
-        userLocationLabel.text = "\(placemark.locality), \(placemark.administrativeArea)"
+        userLocationLabel.text = "You are in: \(placemark.locality), \(placemark.administrativeArea)"
+    }
+    
+    
+    @IBAction func clearButtonAction(sender: AnyObject) {
+        //clears the entire post
+        usernameInput.text = nil
+        postTextView.text = nil
+        postImageView.image = nil
+        self.uploadButton.hidden = false
     }
     
     

@@ -18,6 +18,7 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
     var currentLocationConverted = PFGeoPoint(latitude: 0.0, longitude: 0.0)
     var selectedPost: Post?
     
+    
     @IBOutlet weak var tableView: UITableView!
     let currentUser = PFUser.currentUser()
     
@@ -99,7 +100,7 @@ extension ListingViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-// what i want but is broken
+        // image and without image posts
         let postAtIndex = posts[indexPath.row] as Post
         
         if postAtIndex.imageFile.getData() != nil {
@@ -111,6 +112,8 @@ extension ListingViewController: UITableViewDataSource, UITableViewDelegate {
             cellWithoutImage.wholePost = postAtIndex
             return cellWithoutImage
         }
+        
+        
     
 // working but not what i want
 //        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell

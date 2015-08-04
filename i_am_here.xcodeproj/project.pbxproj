@@ -13,6 +13,7 @@
 		2B6140EB1B644EDB00E5470B /* MyPostsListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6140EA1B644EDB00E5470B /* MyPostsListingViewController.swift */; };
 		2B6140ED1B64537800E5470B /* UserPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6140EC1B64537800E5470B /* UserPostTableViewCell.swift */; };
 		2BB0F7B41B6914A600142910 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB0F7B31B6914A600142910 /* PhotoTakingHelper.swift */; };
+		2BBB843E1B71020C00A79A94 /* StyleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBB843D1B71020C00A79A94 /* StyleConstants.swift */; };
 		2BE272C11B594E5700BEDE61 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE272C01B594E5700BEDE61 /* Marker.swift */; };
 		2BE272C31B59872A00BEDE61 /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE272C21B59872A00BEDE61 /* VCMapView.swift */; };
 		2BFF9DE21B55513C001F4FD4 /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF9DE11B55513C001F4FD4 /* ListingViewController.swift */; };
@@ -143,6 +144,7 @@
 		2B6140EA1B644EDB00E5470B /* MyPostsListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostsListingViewController.swift; sourceTree = "<group>"; };
 		2B6140EC1B64537800E5470B /* UserPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPostTableViewCell.swift; sourceTree = "<group>"; };
 		2BB0F7B31B6914A600142910 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
+		2BBB843D1B71020C00A79A94 /* StyleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleConstants.swift; sourceTree = "<group>"; };
 		2BE272C01B594E5700BEDE61 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		2BE272C21B59872A00BEDE61 /* VCMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
 		2BFF9DE11B55513C001F4FD4 /* ListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListingViewController.swift; path = ../ListingViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BBB84361B7101FC00A79A94 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				2BBB843D1B71020C00A79A94 /* StyleConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		2BFF9DDA1B554BA1001F4FD4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,7 +261,7 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		624262B11B4460CB00005CE3 /* i_am_here */ = {
+		624262B11B4460CB00005CE3 /* TemplateProject */ = {
 			isa = PBXGroup;
 			children = (
 				2BFF9DE91B558DF2001F4FD4 /* ViewControllers */,
@@ -259,13 +269,13 @@
 				2BFF9DE51B5582A9001F4FD4 /* Views */,
 				2BFF9DDA1B554BA1001F4FD4 /* Models */,
 				624262B21B4460CB00005CE3 /* AppDelegate.swift */,
+				2BBB84361B7101FC00A79A94 /* Constants */,
 				624262B71B4460CB00005CE3 /* Helpers */,
 				624262BA1B4460CB00005CE3 /* Images.xcassets */,
 				624262BB1B4460CB00005CE3 /* Info.plist */,
 				624262BC1B4460CB00005CE3 /* TemplateProject-Bridging-Header.h */,
 				624262B31B4460CB00005CE3 /* LaunchScreen.xib */,
 			);
-			name = i_am_here;
 			path = TemplateProject;
 			sourceTree = "<group>";
 		};
@@ -329,7 +339,7 @@
 		62C8C1D71B06BD6500DC3EA7 = {
 			isa = PBXGroup;
 			children = (
-				624262B11B4460CB00005CE3 /* i_am_here */,
+				624262B11B4460CB00005CE3 /* TemplateProject */,
 				62551B621B06BF33000913E4 /* Frameworks */,
 				62C8C1E11B06BD6500DC3EA7 /* Products */,
 			);
@@ -486,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */,
+				2BBB843E1B71020C00A79A94 /* StyleConstants.swift in Sources */,
 				2B6140EB1B644EDB00E5470B /* MyPostsListingViewController.swift in Sources */,
 				624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */,
 				2BE272C31B59872A00BEDE61 /* VCMapView.swift in Sources */,
