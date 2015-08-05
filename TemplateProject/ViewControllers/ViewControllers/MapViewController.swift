@@ -22,6 +22,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var markers: [Marker] = []
     var selectedPost = Post()
     var dateString: String?
+    var distances: [CLLocationDistance] = []
     
     @IBOutlet weak var mapViewer: MKMapView!
     
@@ -55,10 +56,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         for x in 0..<self.posts.count {
             
         let marker = Marker(post: self.posts[x])
-//            var lat = self.posts[x].location!.latitude
-//            var long = self.posts[x].location!.longitude
-//            let user = self.posts[x].user
-//            var marker = Marker(displayName: self.posts[x].displayName!, subtitle: dateToString(self.posts[x].createdAt!), text: self.posts[x].text!, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
+            //trying to set this fucking location
+            var postToHereDistance = self.locationManager.location.distanceFromLocation(marker.cllocation)
+            marker.distance = postToHereDistance
+            
             self.markers.append(marker)
         }
         self.mapViewer.addAnnotations(self.markers)
@@ -69,7 +70,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let postsQuery = Post.query()
         postsQuery!.orderByDescending("createdAt")
         
-        postsQuery!.whereKey("location", nearGeoPoint: point, withinMiles: 1.0)
+        postsQuery!.whereKey("location", nearGeoPoint: point, withinMiles: 50.0)
         postsQuery!.includeKey("user")
         
         //actual query
@@ -80,6 +81,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                     self.posts.append(object as! Post)
                 }
                 self.makePins(self.posts) //UTTER FEAR
+                //self.locationManager.location.distanceFromLocation(self.post.location)
+                //need to initialize a cllocation from longitude and latitude
             }
         }
     }
@@ -135,7 +138,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         dateString = dateFormatter.stringFromDate(date)
         return dateString!
     }
-
     
 }
 

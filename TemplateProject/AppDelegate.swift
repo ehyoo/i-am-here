@@ -41,37 +41,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
-    //spaghetti design
+    //spaghetti design for app
     UINavigationBar.appearance().barTintColor = StyleConstants.customGreenColor
-    UINavigationBar.appearance().tintColor = StyleConstants.customWhitishColor
+    UINavigationBar.appearance().tintColor = UIColor.whiteColor()
     UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     UITabBar.appearance().barTintColor = StyleConstants.customGreenColor
-    UITabBar.appearance().tintColor = StyleConstants.customWhitishColor
+    UITabBar.appearance().tintColor = UIColor.whiteColor()
     
     //set up Parse SDK
     Post.registerSubclass()
     Parse.setApplicationId("GWBnyQuwxythsZwR16EWZZjdm0ziLxcBLx6a8qlw", clientKey: "BPmTkqE73RBdestq0UCUXUpq2OmdEUf94eTiTjBm")
     
     // Initialize Facebook
-    // 1
     PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
     
     // check if we have logged in user
-    // 2
     let user = PFUser.currentUser()
     
     let startViewController: UIViewController;
     
     if (user != nil) {
-        // 3
+
         // if we have a user, set the TabBarController to be the initial View Controller
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         startViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
     } else {
-        // 4
+
         // Otherwise set the LoginViewController to be the first
         let loginViewController = PFLogInViewController()
         loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
+        
+        //spaghetti design for login screen logo
+        var loginLogoTitle = UILabel()
+        loginLogoTitle.text = "I Was Here"
+        loginLogoTitle.textColor = StyleConstants.customGreenColor
+        loginLogoTitle.font = loginLogoTitle.font.fontWithSize(40.0)
+        loginViewController.logInView!.logo = loginLogoTitle
+        
+        //space for more spaghetti design
+        
+        
+        //delegation and stuff
         loginViewController.delegate = parseLoginHelper
         loginViewController.signUpController?.delegate = parseLoginHelper
         

@@ -14,7 +14,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         if let annotation = annotation as? Marker {
             let identifier = "marker"
-            var view: MKAnnotationView
+            var view: MKPinAnnotationView
             if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView {
                 dequeuedView.annotation = annotation
                 view = dequeuedView
@@ -22,8 +22,12 @@ extension MapViewController: MKMapViewDelegate {
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
-                view.rightCalloutAccessoryView = UIButton.buttonWithType(.ContactAdd) as! UIView
+                view.pinColor = annotation.pinColor()
+                if view.pinColor == .Green {
+                    view.rightCalloutAccessoryView = UIButton.buttonWithType(.ContactAdd) as! UIView
+                }
             }
+            
             return view
         }
         return nil
@@ -47,5 +51,6 @@ extension MapViewController: MKMapViewDelegate {
         selectedPost = annotationMarker.post
 
     }
+    
     
 }

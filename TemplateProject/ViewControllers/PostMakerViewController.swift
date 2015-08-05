@@ -151,7 +151,13 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
     @IBAction func postButtonAction(sender: AnyObject) {
         savePost()
         self.tabBarController?.selectedIndex = 0
+        usernameInput.text = nil
+        postTextView.text = nil
+        postImageView.image = nil
+        self.uploadButton.hidden = false
+        self.infoLabel.hidden = true
     }
+    
     @IBAction func uploadButtonAction(sender: AnyObject) {
         //upload button is tapped
         takePhoto()

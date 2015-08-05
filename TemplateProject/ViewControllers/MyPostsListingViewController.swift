@@ -63,6 +63,9 @@ extension MyPostsListingViewController: UITableViewDataSource, UITableViewDelega
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        //dynamic rows
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 44.0
         
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! UserPostTableViewCell
         

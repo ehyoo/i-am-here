@@ -26,6 +26,8 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
         //incredibly hacky way to get around the two views using the segmented control
         //hides the back button 
         self.navigationItem.setHidesBackButton(true, animated: true)
+        
+//        configureTableView()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -42,6 +44,7 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
             self.locationManager.requestAlwaysAuthorization()
             self.locationManager.startUpdatingLocation()
+//            self.locationManager.location.distanceFromLocation(penis)
         }
     }
     
@@ -67,6 +70,7 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
         var currentLocationLongitude = currentLocation.coordinate.longitude
         currentLocationConverted = PFGeoPoint(latitude: currentLocationLatitude, longitude: currentLocationLongitude)
         queryUpdateList(currentLocationConverted)
+        self.locationManager.stopUpdatingLocation()
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
@@ -84,7 +88,7 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
             fullPostViewController.wholePost = selectedPost
         }
     }
-    
+   
 }
 
 extension ListingViewController: UITableViewDataSource, UITableViewDelegate {
@@ -99,6 +103,9 @@ extension ListingViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        //dynamic rows
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 44.0
 
         // image and without image posts
         let postAtIndex = posts[indexPath.row] as Post

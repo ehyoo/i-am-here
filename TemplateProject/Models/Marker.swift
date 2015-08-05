@@ -19,6 +19,8 @@ class Marker: NSObject, MKAnnotation {
     var date: NSDate
     var coordinate: CLLocationCoordinate2D
     var dateString: String?
+    var cllocation: CLLocation
+    var distance: CLLocationDistance?
 
     
     init(post: Post) {
@@ -28,11 +30,15 @@ class Marker: NSObject, MKAnnotation {
         text = post.text!
         coordinate = CLLocationCoordinate2D()
         date = post.createdAt!
+        cllocation = CLLocation()
+        distance = CLLocationDistance(0.0)
         
         super.init()
         
         subtitle = self.dateToString(post.createdAt!)
         coordinate = self.convertToCLLocation(post.location!)
+        cllocation = self.CLLocationMaker(coordinate)
+        
     }
     
     
@@ -52,4 +58,20 @@ class Marker: NSObject, MKAnnotation {
         return convertedCoordinate
     }
     
+    func CLLocationMaker (point: CLLocationCoordinate2D) -> CLLocation {
+        var memes = CLLocation(latitude: point.latitude, longitude: point.longitude)
+        return memes
+    }
+    
+    func pinColor() -> MKPinAnnotationColor {
+        
+        var hardCodedDistance = CLLocationDistance(1000.0)
+        //I NEED TO GET DISTANCE FUCK THIS SHIT
+        if self.distance > hardCodedDistance {
+            return .Red
+        } else {
+            return .Green
+        }
+    }
+
 }

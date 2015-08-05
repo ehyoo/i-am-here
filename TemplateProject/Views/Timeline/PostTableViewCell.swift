@@ -15,7 +15,6 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postTextLabel: UILabel!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var postDateLabel: UILabel!
-    @IBOutlet weak var distanceLabel: UILabel!
     var dateString: String?
 
     

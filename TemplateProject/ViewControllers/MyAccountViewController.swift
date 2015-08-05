@@ -44,7 +44,8 @@ class MyAccountViewController: UIViewController {
     @IBAction func logoutAction(sender: AnyObject) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.logOut()
-        //we leave off here
+        //FIGURE OUT HOW TO FIX THE LOGIN SCREEN SEGUE AND STUFF
+        //MAN YOU'RE BAD AT THIS
     }
     
     
