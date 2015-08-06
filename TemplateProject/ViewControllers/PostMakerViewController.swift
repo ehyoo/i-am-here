@@ -62,6 +62,8 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
             self.locationManager.startUpdatingLocation()
         }
         
+        //dismiss
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -137,6 +139,7 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
         //image view is tapped
         if self.uploadButton.hidden == true {
             self.postTextView.endEditing(true)
+            self.usernameInput.endEditing(true)
             takePhoto()
         } else {
             self.postTextView.endEditing(true)
@@ -148,7 +151,14 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
         
     }
     
+    
+    
     @IBAction func postButtonAction(sender: AnyObject) {
+        //test if username input is blank
+        if usernameInput.text == "" {
+            usernameInput.text = "Anonymous"
+        }
+        
         savePost()
         self.tabBarController?.selectedIndex = 0
         usernameInput.text = nil
@@ -191,6 +201,7 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
         postTextView.text = nil
         postImageView.image = nil
         self.uploadButton.hidden = false
+        self.infoLabel.hidden = true
     }
     
     

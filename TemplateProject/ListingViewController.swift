@@ -18,6 +18,8 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
     var currentLocationConverted = PFGeoPoint(latitude: 0.0, longitude: 0.0)
     var selectedPost: Post?
     
+    // REFRESH CONTROL
+    var refreshControl = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
     let currentUser = PFUser.currentUser()
@@ -27,7 +29,10 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
         //hides the back button 
         self.navigationItem.setHidesBackButton(true, animated: true)
         
-//        configureTableView()
+        //refresh the list
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -63,13 +68,17 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        
         var currentLongitude: CLLocationDegrees = manager.location.coordinate.longitude
         var currentLatitude: CLLocationDegrees = manager.location.coordinate.latitude
         currentLocation = CLLocation(latitude: currentLatitude, longitude: currentLongitude)
+        
         var currentLocationLatitude = currentLocation.coordinate.latitude
         var currentLocationLongitude = currentLocation.coordinate.longitude
         currentLocationConverted = PFGeoPoint(latitude: currentLocationLatitude, longitude: currentLocationLongitude)
+        
         queryUpdateList(currentLocationConverted)
+        
         self.locationManager.stopUpdatingLocation()
     }
     
@@ -87,6 +96,14 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
             let fullPostViewController = segue.destinationViewController as! FullPostViewController
             fullPostViewController.wholePost = selectedPost
         }
+    }
+    
+    //refresh the list
+    func refresh(refreshControl: UIRefreshControl) {
+        println("something")
+        self.tableView.reloadData()
+        //do something
+        refreshControl.endRefreshing()
     }
    
 }
@@ -119,18 +136,7 @@ extension ListingViewController: UITableViewDataSource, UITableViewDelegate {
             cellWithoutImage.wholePost = postAtIndex
             return cellWithoutImage
         }
-        
-        
-    
-// working but not what i want
-//        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
-//        
-//        let postAtIndex = posts[indexPath.row] as Post
-//        cell.wholePost = postAtIndex
-//        
-//        return cell
     }
-    
 }
 
 

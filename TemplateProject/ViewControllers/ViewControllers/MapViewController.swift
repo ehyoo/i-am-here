@@ -81,8 +81,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                     self.posts.append(object as! Post)
                 }
                 self.makePins(self.posts) //UTTER FEAR
-                //self.locationManager.location.distanceFromLocation(self.post.location)
-                //need to initialize a cllocation from longitude and latitude
             }
         }
     }

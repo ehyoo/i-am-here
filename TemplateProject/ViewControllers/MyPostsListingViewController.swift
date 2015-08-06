@@ -13,6 +13,7 @@ class MyPostsListingViewController: UITableViewController {
     
     var posts: [Post] = []
     var selectedPost: Post?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,12 @@ class MyPostsListingViewController: UITableViewController {
             self.posts = result as? [Post] ?? []
             self.tableView.reloadData()
         }
-    
+        
+//        refreshControl = UIRefreshControl()
+//        self.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
+//        self.refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+//        self.tableView.addSubview(refreshControl!)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,15 +45,10 @@ class MyPostsListingViewController: UITableViewController {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    func refresh(refreshControl: UIRefreshControl) {
+//        self.tableView.reloadData()
+//        refreshControl.endRefreshing()
+//    }
 
 }
 

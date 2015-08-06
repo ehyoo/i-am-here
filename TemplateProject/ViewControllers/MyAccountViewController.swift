@@ -21,10 +21,18 @@ class MyAccountViewController: UIViewController {
     @IBOutlet weak var postCountLabel: UILabel!
     
     @IBOutlet weak var nameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        queryForUser()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        queryForUser()
+    }
+    
+    func queryForUser() {
         
-        //query user posts
         let postsQuery = Post.query()
         postsQuery!.orderByDescending("createdAt")
         postsQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
@@ -47,16 +55,5 @@ class MyAccountViewController: UIViewController {
         //FIGURE OUT HOW TO FIX THE LOGIN SCREEN SEGUE AND STUFF
         //MAN YOU'RE BAD AT THIS
     }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
 }
