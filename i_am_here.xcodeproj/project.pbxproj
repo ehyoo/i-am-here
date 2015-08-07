@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B08AC3A1B62B7E200AC809D /* FullPostviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08AC391B62B7E200AC809D /* FullPostviewController.swift */; };
 		2B33EFDE1B6BB3100087DF81 /* PostTableWithImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B33EFDD1B6BB3100087DF81 /* PostTableWithImageViewCell.swift */; };
+		2B3DE8FF1B74EEFB00A8E882 /* FullPostviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3DE8FE1B74EEFB00A8E882 /* FullPostviewController.swift */; };
 		2B6140E91B644DD600E5470B /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6140E81B644DD600E5470B /* MyAccountViewController.swift */; };
 		2B6140EB1B644EDB00E5470B /* MyPostsListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6140EA1B644EDB00E5470B /* MyPostsListingViewController.swift */; };
 		2B6140ED1B64537800E5470B /* UserPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6140EC1B64537800E5470B /* UserPostTableViewCell.swift */; };
@@ -138,8 +138,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2B08AC391B62B7E200AC809D /* FullPostviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullPostviewController.swift; sourceTree = "<group>"; };
 		2B33EFDD1B6BB3100087DF81 /* PostTableWithImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableWithImageViewCell.swift; sourceTree = "<group>"; };
+		2B3DE8FE1B74EEFB00A8E882 /* FullPostviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullPostviewController.swift; sourceTree = "<group>"; };
 		2B6140E81B644DD600E5470B /* MyAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
 		2B6140EA1B644EDB00E5470B /* MyPostsListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostsListingViewController.swift; sourceTree = "<group>"; };
 		2B6140EC1B64537800E5470B /* UserPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPostTableViewCell.swift; sourceTree = "<group>"; };
@@ -255,8 +255,8 @@
 				2BFF9DED1B56D89A001F4FD4 /* PostMakerViewController.swift */,
 				2BFF9DE11B55513C001F4FD4 /* ListingViewController.swift */,
 				2B6140EA1B644EDB00E5470B /* MyPostsListingViewController.swift */,
-				2B08AC391B62B7E200AC809D /* FullPostviewController.swift */,
 				2B6140E81B644DD600E5470B /* MyAccountViewController.swift */,
+				2B3DE8FE1B74EEFB00A8E882 /* FullPostviewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -500,8 +500,8 @@
 				2B6140EB1B644EDB00E5470B /* MyPostsListingViewController.swift in Sources */,
 				624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */,
 				2BE272C31B59872A00BEDE61 /* VCMapView.swift in Sources */,
+				2B3DE8FF1B74EEFB00A8E882 /* FullPostviewController.swift in Sources */,
 				2B6140E91B644DD600E5470B /* MyAccountViewController.swift in Sources */,
-				2B08AC3A1B62B7E200AC809D /* FullPostviewController.swift in Sources */,
 				2B33EFDE1B6BB3100087DF81 /* PostTableWithImageViewCell.swift in Sources */,
 				2BB0F7B41B6914A600142910 /* PhotoTakingHelper.swift in Sources */,
 				624262C31B4460CB00005CE3 /* ErrorHandling.swift in Sources */,

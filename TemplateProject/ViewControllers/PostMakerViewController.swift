@@ -159,13 +159,25 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
             usernameInput.text = "Anonymous"
         }
         
+        //save the post
         savePost()
+        
+        //return back to the map
         self.tabBarController?.selectedIndex = 0
+        
+        //clear the post for further use
         usernameInput.text = nil
         postTextView.text = nil
         postImageView.image = nil
         self.uploadButton.hidden = false
         self.infoLabel.hidden = true
+        
+        //set up alert that post was made. 
+        let alertController = UIAlertController(title: "Post Successful!", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title:"Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     @IBAction func uploadButtonAction(sender: AnyObject) {

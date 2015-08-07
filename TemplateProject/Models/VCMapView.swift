@@ -22,6 +22,7 @@ extension MapViewController: MKMapViewDelegate {
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
+                
                 view.pinColor = annotation.pinColor()
                 if view.pinColor == .Green {
                     view.rightCalloutAccessoryView = UIButton.buttonWithType(.ContactAdd) as! UIView
@@ -46,9 +47,14 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
-        let annotationMarker: Marker = view.annotation as! Marker
         
-        selectedPost = annotationMarker.post
+        //that is some shitty error checking
+        //need a better way- but for now it's to check that the view.annotation.title doesn't equal that string. 
+        
+        if "\(view.annotation.title)" != "Optional(Current Location)" {
+            let annotationMarker: Marker = view.annotation as! Marker
+            selectedPost = annotationMarker.post
+        }
 
     }
     

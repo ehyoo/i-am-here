@@ -110,6 +110,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        //mapViewer.showsUserLocation = (status == .AuthorizedAlways)
+        mapViewer.showsUserLocation = true
+    }
+    
     func centerMapOnLocation(location: CLLocation) {
         //gets map view area
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,

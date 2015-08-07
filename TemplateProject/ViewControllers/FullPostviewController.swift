@@ -12,12 +12,11 @@ import Parse
 
 class FullPostViewController: UIViewController {
 
-
-
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTextLabel: UITextView!
+    @IBOutlet weak var verticalLayout: NSLayoutConstraint!
     
     var dateString: String?
     var postCreatedDate: String?
@@ -26,6 +25,24 @@ class FullPostViewController: UIViewController {
         didSet {
             displayPost(wholePost)
         }
+    }
+    
+    override func viewDidLoad() {
+        println(postImageView.image)
+        println(postImageView)
+        
+        postTextLabel.sizeToFit()
+        postTextLabel.layoutIfNeeded()
+        
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        if postImageView.image == nil {
+            println("image is nil")
+        }
+        
+        //scroll to the top of the text view
+        //we can delete this i think
+        postTextLabel.scrollRangeToVisible(NSMakeRange(0, 0))
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -44,6 +61,11 @@ class FullPostViewController: UIViewController {
                 var viewImage = UIImage(data: data!, scale: 1.0)
                 
                 postImageView.image = viewImage
+            } else {
+                postImageView.hidden = true
+                
+                //update constraints
+                verticalLayout.constant = 16
             }
         }
     }
@@ -56,10 +78,6 @@ class FullPostViewController: UIViewController {
     }
 
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
 }
