@@ -106,6 +106,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loginViewController.delegate = parseLoginHelper
         loginViewController.signUpController?.delegate = parseLoginHelper
         
+        //spaghetti design for login screen logo
+        var loginLogoTitle = UILabel()
+        loginLogoTitle.text = "I Was Here"
+        loginLogoTitle.textColor = StyleConstants.customGreenColor
+        loginLogoTitle.font = loginLogoTitle.font.fontWithSize(40.0)
+        loginViewController.logInView!.logo = loginLogoTitle
+        
         showedViewController = loginViewController
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)

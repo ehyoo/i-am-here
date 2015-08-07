@@ -142,5 +142,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         return dateString!
     }
     
+    func updateColor() {
+        println("do something")
+    }
+    
 }
 

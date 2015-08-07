@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 
 extension MapViewController: MKMapViewDelegate {
+    
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         if let annotation = annotation as? Marker {
             let identifier = "marker"
@@ -18,6 +19,8 @@ extension MapViewController: MKMapViewDelegate {
             if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView {
                 dequeuedView.annotation = annotation
                 view = dequeuedView
+                view.pinColor = annotation.pinColor()
+                
             } else {
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
@@ -26,6 +29,8 @@ extension MapViewController: MKMapViewDelegate {
                 view.pinColor = annotation.pinColor()
                 if view.pinColor == .Green {
                     view.rightCalloutAccessoryView = UIButton.buttonWithType(.ContactAdd) as! UIView
+                } else {
+                    view.enabled = false
                 }
             }
             

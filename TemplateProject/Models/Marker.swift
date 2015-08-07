@@ -64,11 +64,14 @@ class Marker: NSObject, MKAnnotation {
     }
     
     func pinColor() -> MKPinAnnotationColor {
+        //sorts colours
         
         var hardCodedDistance = CLLocationDistance(1000.0)
-        //I NEED TO GET DISTANCE FUCK THIS SHIT
+
         if self.distance > hardCodedDistance {
             return .Red
+        } else if self.post.user!.objectId == PFUser.currentUser()!.objectId {
+            return .Purple
         } else {
             return .Green
         }
