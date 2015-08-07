@@ -67,14 +67,15 @@ class Marker: NSObject, MKAnnotation {
         //sorts colours
         
         var hardCodedDistance = CLLocationDistance(1000.0)
-
-        if self.distance > hardCodedDistance {
-            return .Red
-        } else if self.post.user!.objectId == PFUser.currentUser()!.objectId {
+        
+        if self.post.user!.objectId == PFUser.currentUser()!.objectId {
             return .Purple
+        } else if self.distance > hardCodedDistance {
+            return .Red
         } else {
             return .Green
         }
+
     }
 
 }

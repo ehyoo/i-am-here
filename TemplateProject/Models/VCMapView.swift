@@ -29,8 +29,10 @@ extension MapViewController: MKMapViewDelegate {
                 view.pinColor = annotation.pinColor()
                 if view.pinColor == .Green {
                     view.rightCalloutAccessoryView = UIButton.buttonWithType(.ContactAdd) as! UIView
-                } else {
+                } else if view.pinColor == .Red {
                     view.enabled = false
+                } else {
+                    view.rightCalloutAccessoryView = UIButton.buttonWithType(.ContactAdd) as! UIView
                 }
             }
             
