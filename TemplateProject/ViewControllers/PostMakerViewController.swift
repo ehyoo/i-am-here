@@ -149,9 +149,20 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
         }
         
         //finally save the post
+
         activityIndicatorView.startAnimating()
         post.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            
+            //blocks, man. 
+            //change to map
             self.tabBarController?.selectedIndex = 0
+            //clear the post areas
+            self.clearAllAreas()
+            //hide activity indicator view
+            self.activityIndicatorView.hidden = true
+            self.activityIndicatorView.stopAnimating()
+            //make alert for user
+            self.alertMakerDone()
         }
     }
     
@@ -186,34 +197,21 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
             usernameInput.text = "Anonymous"
         }
         
-        //animation of activityIndicatorView
         activityIndicatorView.hidden = false
         activityIndicatorView.startAnimating()
-        
+
         //saves post
         savePost()
-        
-        //when posting is done, stop animating
-        activityIndicatorView.stopAnimating()
-        
-        //change to map and clear all
-        //self.tabBarController?.selectedIndex = 0
-        
-        //clear the post for further use
+    }
+    
+    func clearAllAreas() {
         usernameInput.text = nil
         postTextView.text = nil
         postImageView.image = nil
         self.uploadButton.hidden = false
         self.infoLabel.hidden = true
-        activityIndicatorView.hidden = true
-        
-        
-        //alert that it's done
-        alertMakerDone()
-        
-        //refreshannotations
-        MapViewController().refreshAnnotations()
     }
+    
     
     @IBAction func uploadButtonAction(sender: AnyObject) {
         //upload button is tapped
