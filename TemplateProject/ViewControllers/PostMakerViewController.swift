@@ -19,6 +19,7 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
     var postLocation = PFGeoPoint(latitude: 0.0, longitude: 0.0)
     var photoTakingHelper: PhotoTakingHelper?
     var selectedImage: UIImage?
+    var photoUploadTask: UIBackgroundTaskIdentifier?
     
     @IBOutlet weak var usernameInput: UITextField!
     @IBOutlet weak var postTextView: UITextView!
@@ -26,6 +27,8 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var userLocationLabel: UILabel!
+    
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         
@@ -46,6 +49,9 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
         
         //hide info label
         infoLabel.hidden = true
+        
+        //hide activity indicator view
+        self.activityIndicatorView.hidden = true
         
         //if image view is tapped, show the image selector.
         var UITapRecognizer = UITapGestureRecognizer(target: self, action: "tappedImage:")
@@ -124,15 +130,38 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
         post["user"] = PFUser.currentUser()
         
         //saving post image with error checking
+        
         if selectedImage != nil {
             let imageData = UIImageJPEGRepresentation(selectedImage!, 1.0)
             let imageFile = PFFile(data: imageData)
-            imageFile.save()
+            
+            photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+            }
+            
+            
+            imageFile.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+                
+            }
+            
             post["imageFile"] = imageFile
         }
         
         //finally save the post
-        post.saveInBackground()
+        activityIndicatorView.startAnimating()
+        post.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            self.tabBarController?.selectedIndex = 0
+        }
+    }
+    
+
+    
+    func alertMakerDone() {
+        let alertController = UIAlertController(title: "Post Successful!", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title:"Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func tappedImage(image: AnyObject) {
@@ -146,9 +175,7 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
             //dismiss your shit
         }
         
-        //also dismisses the keyboard 
-        
-        
+        //also dismisses the keyboard
     }
     
     
@@ -159,11 +186,18 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
             usernameInput.text = "Anonymous"
         }
         
-        //save the post
+        //animation of activityIndicatorView
+        activityIndicatorView.hidden = false
+        activityIndicatorView.startAnimating()
+        
+        //saves post
         savePost()
         
-        //return back to the map
-        self.tabBarController?.selectedIndex = 0
+        //when posting is done, stop animating
+        activityIndicatorView.stopAnimating()
+        
+        //change to map and clear all
+        //self.tabBarController?.selectedIndex = 0
         
         //clear the post for further use
         usernameInput.text = nil
@@ -171,13 +205,14 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
         postImageView.image = nil
         self.uploadButton.hidden = false
         self.infoLabel.hidden = true
+        activityIndicatorView.hidden = true
         
-        //set up alert that post was made. 
-        let alertController = UIAlertController(title: "Post Successful!", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title:"Dismiss", style: UIAlertActionStyle.Default, handler: nil))
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        //alert that it's done
+        alertMakerDone()
         
+        //refreshannotations
+        MapViewController().refreshAnnotations()
     }
     
     @IBAction func uploadButtonAction(sender: AnyObject) {

@@ -661,6 +661,10 @@
                                     </mask>
                                 </variation>
                             </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eCD-bz-l0z">
+                                <rect key="frame" x="282" y="282" width="37" height="37"/>
+                                <color key="color" red="0.94827204942703247" green="0.0087913073228690231" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.96078431372549022" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -673,9 +677,11 @@
                             <constraint firstItem="tJy-9C-Igg" firstAttribute="top" secondItem="Ftr-Oc-KCQ" secondAttribute="bottom" constant="4" id="K8N-xO-r3u"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gsz-Sc-jMf" secondAttribute="trailing" id="Ky7-FJ-pWd"/>
                             <constraint firstItem="Vpc-QV-F9U" firstAttribute="top" secondItem="cRE-9N-TYz" secondAttribute="bottom" id="QjO-AE-6nF"/>
+                            <constraint firstAttribute="centerX" secondItem="eCD-bz-l0z" secondAttribute="centerX" id="T8V-QL-1QJ"/>
                             <constraint firstItem="tJy-9C-Igg" firstAttribute="leading" secondItem="6iR-TK-MDe" secondAttribute="leadingMargin" id="YEY-l4-DAj"/>
                             <constraint firstItem="cRE-9N-TYz" firstAttribute="top" secondItem="hUh-dO-g9r" secondAttribute="bottom" constant="4" id="ZD3-Vg-1jd"/>
                             <constraint firstItem="tJy-9C-Igg" firstAttribute="trailing" secondItem="6iR-TK-MDe" secondAttribute="trailingMargin" id="Zct-LK-iHf"/>
+                            <constraint firstAttribute="centerY" secondItem="eCD-bz-l0z" secondAttribute="centerY" id="a4O-4l-OSX"/>
                             <constraint firstItem="gsz-Sc-jMf" firstAttribute="top" secondItem="Vpc-QV-F9U" secondAttribute="bottom" id="ab8-mH-VA4"/>
                             <constraint firstItem="cRE-9N-TYz" firstAttribute="top" secondItem="tJy-9C-Igg" secondAttribute="bottom" constant="4" id="dzJ-D6-mmh"/>
                             <constraint firstItem="cRE-9N-TYz" firstAttribute="leading" secondItem="6iR-TK-MDe" secondAttribute="leadingMargin" id="gMG-fd-Lyp"/>
@@ -713,6 +719,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="eCD-bz-l0z" id="6By-71-DsY"/>
                         <outlet property="infoLabel" destination="Vpc-QV-F9U" id="hqM-SG-blx"/>
                         <outlet property="postImageView" destination="gsz-Sc-jMf" id="XdC-YS-4bb"/>
                         <outlet property="postTextView" destination="cRE-9N-TYz" id="mUS-yU-dZY"/>

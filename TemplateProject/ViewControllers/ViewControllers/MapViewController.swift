@@ -23,12 +23,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var selectedPost = Post()
     var dateString: String?
     var distances: [CLLocationDistance] = []
+    var postCount: Int = 0
     
     @IBOutlet weak var mapViewer: MKMapView!
     
     
     override func viewDidLoad() {
-        
         //incredibly hacky way to switch between the two views
         //hides the back button
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -50,6 +50,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        //no animation because im a scrub and i dont want to take more time into this
+        self.locationManager.startUpdatingLocation()
+    }
+    
     func makePins(posts: [Post]) {
         self.mapViewer.removeAnnotations(self.mapViewer.annotations as! [MKAnnotation])
         self.markers = []
@@ -58,11 +63,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let marker = Marker(post: self.posts[x])
             //trying to set this fucking location
             var postToHereDistance = self.locationManager.location.distanceFromLocation(marker.cllocation)
+            //and getting distance of pins
             marker.distance = postToHereDistance
             
             self.markers.append(marker)
         }
-        self.mapViewer.addAnnotations(self.markers)
+        self.mapViewer.addAnnotations(self.markers) //shouldn't we have an animation here? 
     }
     
     func getPostsAtLocationAndMakePins(point: PFGeoPoint) {
@@ -95,12 +101,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         var refPoint = PFGeoPoint(latitude: clLat, longitude: clLong)
         
         if posts.count == 0 {
-            println(posts.count)
             getPostsAtLocationAndMakePins(refPoint)
-            centerMapOnLocation(currentLocation) //we can adjust this such that it snaps back to centre later. 
+            centerMapOnLocation(currentLocation)
+            
+            //we can adjust this such that it snaps back to centre later.
             //in fact you have to put that in the else statement so it can follow the user but hey we'll see.
+            
+        } else {
+            //stops updating it
+            self.locationManager.stopUpdatingLocation()
+            getPostsAtLocationAndMakePins(refPoint)
+            //i guess it kinda works
         }
-        
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
@@ -142,8 +154,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         return dateString!
     }
     
-    func updateColor() {
-        println("do something")
+    func refreshAnnotations() {
+        self.locationManager.startUpdatingHeading()
     }
     
 }

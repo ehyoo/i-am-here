@@ -34,6 +34,9 @@ extension MapViewController: MKMapViewDelegate {
                 } else {
                     view.rightCalloutAccessoryView = UIButton.buttonWithType(.ContactAdd) as! UIView
                 }
+                
+                //that's how you animate the drop 
+//              view.animatesDrop = true
             }
             
             return view
