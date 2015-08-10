@@ -9,6 +9,7 @@
 import Foundation
 import Parse
 import MapKit
+import Bond
 
 
 class Post: PFObject, PFSubclassing {
@@ -17,6 +18,7 @@ class Post: PFObject, PFSubclassing {
     @NSManaged var location: PFGeoPoint?
     @NSManaged var text: String?
     @NSManaged var displayName: String?
+    var image: Dynamic<UIImage?> = Dynamic(nil)
     
     static func parseClassName() -> String {
         return "Post"
@@ -34,5 +36,15 @@ class Post: PFObject, PFSubclassing {
         }
     }
     
+    func downloadImage() {
+        if (image.value == nil) {
+            imageFile.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+                if let data = data {
+                    let image = UIImage(data: data, scale:1.0)!
+                    self.image.value = image
+                }
+            }
+        }
+    }
     
 }

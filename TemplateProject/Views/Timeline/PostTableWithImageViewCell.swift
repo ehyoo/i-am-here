@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Parse
+import Bond
 
 class PostTableWithImageViewCell: UITableViewCell {
     
@@ -21,6 +22,7 @@ class PostTableWithImageViewCell: UITableViewCell {
     var wholePost: Post? {
         didSet {
             displayPost(wholePost!)
+            wholePost!.image ->> displayImageView
         }
     }
     
@@ -29,7 +31,7 @@ class PostTableWithImageViewCell: UITableViewCell {
             displayNameLabel.text = post.displayName
             displayPostLabel.text = post.text
             displayDateLabel.text = dateToString(post.createdAt!)
-            displayImageView.image = imageConverter(post.imageFile)
+//            displayImageView.image = imageConverter(post.imageFile)
         }
     }
     

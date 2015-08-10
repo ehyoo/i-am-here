@@ -12,6 +12,7 @@
 		2B6140E91B644DD600E5470B /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6140E81B644DD600E5470B /* MyAccountViewController.swift */; };
 		2B6140EB1B644EDB00E5470B /* MyPostsListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6140EA1B644EDB00E5470B /* MyPostsListingViewController.swift */; };
 		2B6140ED1B64537800E5470B /* UserPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6140EC1B64537800E5470B /* UserPostTableViewCell.swift */; };
+		2B9688D81B791BB7009482C4 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9688D71B791BB7009482C4 /* ParseHelper.swift */; };
 		2BB0F7B41B6914A600142910 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB0F7B31B6914A600142910 /* PhotoTakingHelper.swift */; };
 		2BBB843E1B71020C00A79A94 /* StyleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBB843D1B71020C00A79A94 /* StyleConstants.swift */; };
 		2BE272C11B594E5700BEDE61 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE272C01B594E5700BEDE61 /* Marker.swift */; };
@@ -143,6 +144,7 @@
 		2B6140E81B644DD600E5470B /* MyAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
 		2B6140EA1B644EDB00E5470B /* MyPostsListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostsListingViewController.swift; sourceTree = "<group>"; };
 		2B6140EC1B64537800E5470B /* UserPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPostTableViewCell.swift; sourceTree = "<group>"; };
+		2B9688D71B791BB7009482C4 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		2BB0F7B31B6914A600142910 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		2BBB843D1B71020C00A79A94 /* StyleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleConstants.swift; sourceTree = "<group>"; };
 		2BE272C01B594E5700BEDE61 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			children = (
 				624262B81B4460CB00005CE3 /* ErrorHandling.swift */,
 				624262B91B4460CB00005CE3 /* ParseLoginHelper.swift */,
+				2B9688D71B791BB7009482C4 /* ParseHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				2B6140EB1B644EDB00E5470B /* MyPostsListingViewController.swift in Sources */,
 				624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */,
 				2BE272C31B59872A00BEDE61 /* VCMapView.swift in Sources */,
+				2B9688D81B791BB7009482C4 /* ParseHelper.swift in Sources */,
 				2B3DE8FF1B74EEFB00A8E882 /* FullPostviewController.swift in Sources */,
 				2B6140E91B644DD600E5470B /* MyAccountViewController.swift in Sources */,
 				2B33EFDE1B6BB3100087DF81 /* PostTableWithImageViewCell.swift in Sources */,

@@ -51,20 +51,21 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
             self.locationManager.startUpdatingLocation()
 //            self.locationManager.location.distanceFromLocation(penis)
         }
+        
+        ParseHelper.listingViewControllerRequest({
+            (result: [AnyObject]?, error: NSError?) -> Void in
+            self.posts = result as? [Post] ?? []
+            self.tableView.reloadData()},
+            currentLocationConverted: currentLocationConverted)
     }
     
     func queryUpdateList(coordinate: PFGeoPoint) {
         //query and updating the table view list
-        let postsQuery = Post.query()
         
-        postsQuery!.orderByDescending("createdAt")
-        //bases query based on location
-        postsQuery!.whereKey("location", nearGeoPoint: currentLocationConverted, withinMiles: 0.05)
-        //actual query
-        postsQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
+        ParseHelper.listingViewControllerRequest( {(result: [AnyObject]?, error: NSError?) -> Void in
             self.posts = result as? [Post] ?? []
-            self.tableView.reloadData()
-        }
+            self.tableView.reloadData()},
+            currentLocationConverted: coordinate)
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -127,7 +128,9 @@ extension ListingViewController: UITableViewDataSource, UITableViewDelegate {
         // image and without image posts
         let postAtIndex = posts[indexPath.row] as Post
         
+        
         if postAtIndex.imageFile.getData() != nil {
+            postAtIndex.downloadImage()
             var cellWithImage = tableView.dequeueReusableCellWithIdentifier("PostCellWithImage") as! PostTableWithImageViewCell
             cellWithImage.wholePost = postAtIndex
             return cellWithImage

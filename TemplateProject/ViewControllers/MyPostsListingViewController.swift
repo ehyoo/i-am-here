@@ -26,10 +26,6 @@ class MyPostsListingViewController: UITableViewController {
             self.tableView.reloadData()
         }
         
-//        refreshControl = UIRefreshControl()
-//        self.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
-//        self.refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-//        self.tableView.addSubview(refreshControl!)
         
     }
 
@@ -44,11 +40,6 @@ class MyPostsListingViewController: UITableViewController {
             fullPostViewController.wholePost = selectedPost
         }
     }
-
-//    func refresh(refreshControl: UIRefreshControl) {
-//        self.tableView.reloadData()
-//        refreshControl.endRefreshing()
-//    }
 
 }
 
