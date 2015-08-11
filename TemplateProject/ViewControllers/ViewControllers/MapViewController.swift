@@ -18,15 +18,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var locationManager = CLLocationManager()
     let regionRadius: CLLocationDistance = 250
     var currentLocation = CLLocation(latitude: 37.3318, longitude: -122.0312)
+    var refPoint = PFGeoPoint(latitude: 37.3318, longitude: -122.0312)
     var posts: [Post] = []
     var markers: [Marker] = []
     var selectedPost = Post()
     var dateString: String?
     var distances: [CLLocationDistance] = []
     var postCount: Int = 0
+    var refreshControl = UIRefreshControl()
+    var selectedPostInList: Post?
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapViewer: MKMapView!
+    @IBOutlet weak var showingButton: UIButton!
     
+    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         //incredibly hacky way to switch between the two views
@@ -48,6 +54,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             
             mapViewer.delegate = self
         }
+
+        
+        //refresh the list
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -96,22 +109,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         var currentLongitude: CLLocationDegrees = manager.location.coordinate.longitude
         var currentLatitude: CLLocationDegrees = manager.location.coordinate.latitude
         currentLocation = CLLocation(latitude: currentLatitude, longitude: currentLongitude)
+        
         var clLat = currentLocation.coordinate.latitude
         var clLong = currentLocation.coordinate.longitude
-        var refPoint = PFGeoPoint(latitude: clLat, longitude: clLong)
+        refPoint = PFGeoPoint(latitude: clLat, longitude: clLong)
         
         if posts.count == 0 {
             getPostsAtLocationAndMakePins(refPoint)
             centerMapOnLocation(currentLocation)
-            
-            //we can adjust this such that it snaps back to centre later.
-            //in fact you have to put that in the else statement so it can follow the user but hey we'll see.
-            
+            queryUpdateList(refPoint)
         } else {
-            //stops updating it
             self.locationManager.stopUpdatingLocation()
             getPostsAtLocationAndMakePins(refPoint)
-            //i guess it kinda works
+            queryUpdateList(refPoint)
         }
     }
     
@@ -158,5 +168,54 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         self.locationManager.startUpdatingHeading()
     }
     
-}
+    @IBAction func showTableView(sender: AnyObject) {
+        
+        if self.tableViewTopConstraint.constant != 0 {
+            self.tableViewTopConstraint.constant = 0
+
+            UIView.animateWithDuration(0.3) {
+                self.view.layoutIfNeeded()
+            }
+            showingButton.setTitle("Show Map!", forState: UIControlState.Normal)
+            
+            
+        } else {
+            self.tableViewTopConstraint.constant = 487
+            UIView.animateWithDuration(0.3) {
+                self.view.layoutIfNeeded()
+            }
+            showingButton.setTitle("Show List of Posts!", forState: UIControlState.Normal)
+            
+        }
+    }
+    
+    
+    func queryUpdateList(coordinate: PFGeoPoint) {
+        //query and updating the table view list
+        
+        ParseHelper.listingViewControllerRequest( {(result: [AnyObject]?, error: NSError?) -> Void in
+            self.posts = result as? [Post] ?? []
+            self.tableView.reloadData()},
+            currentLocationConverted: coordinate)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showFullPost" {
+            let fullPostViewController = segue.destinationViewController as! FullPostViewController
+            fullPostViewController.wholePost = selectedPostInList
+        } else if segue.identifier == "showFullPostFromAnnotation" {
+        let fullPostViewController = segue.destinationViewController as! FullPostViewController
+        
+        fullPostViewController.wholePost = selectedPost
+        }
+    }
+    
+    func refresh(refreshControl: UIRefreshControl) {
+        queryUpdateList(refPoint)
+        refreshControl.endRefreshing()
+    }
+    
+    
+    
+ }
 

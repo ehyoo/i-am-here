@@ -10,6 +10,7 @@
 		2B33EFDE1B6BB3100087DF81 /* PostTableWithImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B33EFDD1B6BB3100087DF81 /* PostTableWithImageViewCell.swift */; };
 		2B3DE8FF1B74EEFB00A8E882 /* FullPostviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3DE8FE1B74EEFB00A8E882 /* FullPostviewController.swift */; };
 		2B5917031B7A49F2005CA726 /* AboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5917021B7A49F2005CA726 /* AboutPageViewController.swift */; };
+		2B5917071B7A7E2B005CA726 /* ListingViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5917061B7A7E2B005CA726 /* ListingViewCells.swift */; };
 		2B6140E91B644DD600E5470B /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6140E81B644DD600E5470B /* MyAccountViewController.swift */; };
 		2B6140EB1B644EDB00E5470B /* MyPostsListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6140EA1B644EDB00E5470B /* MyPostsListingViewController.swift */; };
 		2B6140ED1B64537800E5470B /* UserPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6140EC1B64537800E5470B /* UserPostTableViewCell.swift */; };
@@ -143,6 +144,7 @@
 		2B33EFDD1B6BB3100087DF81 /* PostTableWithImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableWithImageViewCell.swift; sourceTree = "<group>"; };
 		2B3DE8FE1B74EEFB00A8E882 /* FullPostviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullPostviewController.swift; sourceTree = "<group>"; };
 		2B5917021B7A49F2005CA726 /* AboutPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutPageViewController.swift; sourceTree = "<group>"; };
+		2B5917061B7A7E2B005CA726 /* ListingViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingViewCells.swift; sourceTree = "<group>"; };
 		2B6140E81B644DD600E5470B /* MyAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
 		2B6140EA1B644EDB00E5470B /* MyPostsListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostsListingViewController.swift; sourceTree = "<group>"; };
 		2B6140EC1B64537800E5470B /* UserPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPostTableViewCell.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				2BE272C01B594E5700BEDE61 /* Marker.swift */,
 				2BE272C21B59872A00BEDE61 /* VCMapView.swift */,
 				2BB0F7B31B6914A600142910 /* PhotoTakingHelper.swift */,
+				2B5917061B7A7E2B005CA726 /* ListingViewCells.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -256,8 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				2BFF9DF01B56FDEF001F4FD4 /* MapViewController.swift */,
-				2BFF9DED1B56D89A001F4FD4 /* PostMakerViewController.swift */,
 				2BFF9DE11B55513C001F4FD4 /* ListingViewController.swift */,
+				2BFF9DED1B56D89A001F4FD4 /* PostMakerViewController.swift */,
 				2B6140EA1B644EDB00E5470B /* MyPostsListingViewController.swift */,
 				2B6140E81B644DD600E5470B /* MyAccountViewController.swift */,
 				2B3DE8FE1B74EEFB00A8E882 /* FullPostviewController.swift */,
@@ -508,6 +511,7 @@
 				2BE272C31B59872A00BEDE61 /* VCMapView.swift in Sources */,
 				2B9688D81B791BB7009482C4 /* ParseHelper.swift in Sources */,
 				2B3DE8FF1B74EEFB00A8E882 /* FullPostviewController.swift in Sources */,
+				2B5917071B7A7E2B005CA726 /* ListingViewCells.swift in Sources */,
 				2B6140E91B644DD600E5470B /* MyAccountViewController.swift in Sources */,
 				2B33EFDE1B6BB3100087DF81 /* PostTableWithImageViewCell.swift in Sources */,
 				2BB0F7B41B6914A600142910 /* PhotoTakingHelper.swift in Sources */,

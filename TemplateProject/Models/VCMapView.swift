@@ -43,14 +43,7 @@ extension MapViewController: MKMapViewDelegate {
         }
         return nil
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showFullPostFromAnnotation" {
-            let fullPostViewController = segue.destinationViewController as! FullPostViewController
 
-            fullPostViewController.wholePost = selectedPost
-        }
-    }
     
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
         performSegueWithIdentifier("showFullPostFromAnnotation", sender: self)

@@ -277,41 +277,165 @@ and also some other stuff about the icons</mutableString>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lMA-NX-Jez">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lMA-NX-Jez">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="o9A-fM-XQF">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.92549019610000005" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="108" id="FJL-fN-KXI" customClass="PostTableViewCell" customModule="i_am_here" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FJL-fN-KXI" id="Bv2-d5-8aC">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Display Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bM7-Yq-6br">
+                                                    <rect key="frame" x="8" y="8" width="584" height="22"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Date Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFx-sr-hmZ">
+                                                    <rect key="frame" x="8" y="34" width="584" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Post Text Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zek-0w-BHZ">
+                                                    <rect key="frame" x="8" y="59" width="584" height="40"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qFx-sr-hmZ" secondAttribute="trailing" id="0lP-x2-aHm"/>
+                                                <constraint firstItem="Zek-0w-BHZ" firstAttribute="leading" secondItem="Bv2-d5-8aC" secondAttribute="leadingMargin" id="3AP-2b-m4W"/>
+                                                <constraint firstItem="Zek-0w-BHZ" firstAttribute="trailing" secondItem="Bv2-d5-8aC" secondAttribute="trailingMargin" id="3ag-iK-hXB"/>
+                                                <constraint firstItem="qFx-sr-hmZ" firstAttribute="top" secondItem="bM7-Yq-6br" secondAttribute="bottom" constant="4" id="GOD-1R-DQf"/>
+                                                <constraint firstItem="qFx-sr-hmZ" firstAttribute="leading" secondItem="Bv2-d5-8aC" secondAttribute="leadingMargin" id="Gce-Jj-gKu"/>
+                                                <constraint firstItem="bM7-Yq-6br" firstAttribute="leading" secondItem="Bv2-d5-8aC" secondAttribute="leadingMargin" id="JJP-cU-DdU"/>
+                                                <constraint firstItem="bM7-Yq-6br" firstAttribute="top" secondItem="Bv2-d5-8aC" secondAttribute="topMargin" id="NlB-l9-n29"/>
+                                                <constraint firstItem="Zek-0w-BHZ" firstAttribute="bottom" secondItem="Bv2-d5-8aC" secondAttribute="bottomMargin" id="Sqk-IW-xfO"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bM7-Yq-6br" secondAttribute="trailing" id="UQ3-vj-EVg"/>
+                                                <constraint firstItem="Zek-0w-BHZ" firstAttribute="top" secondItem="bM7-Yq-6br" secondAttribute="bottom" constant="4" id="bg9-Io-UBY"/>
+                                                <constraint firstItem="Zek-0w-BHZ" firstAttribute="top" secondItem="qFx-sr-hmZ" secondAttribute="bottom" constant="8" id="xlN-fG-yt8"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="bg9-Io-UBY"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.92549019610000005" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="displayNameLabel" destination="bM7-Yq-6br" id="Te1-ki-Vez"/>
+                                            <outlet property="postDateLabel" destination="qFx-sr-hmZ" id="me9-rl-I00"/>
+                                            <outlet property="postTextLabel" destination="Zek-0w-BHZ" id="EoT-0r-gv7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCellWithImage" rowHeight="318" id="0Hh-ef-7Ez" customClass="PostTableWithImageViewCell" customModule="i_am_here" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Hh-ef-7Ez" id="aBL-G5-0Xt">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MJM-X2-qDS">
+                                                    <rect key="frame" x="0.0" y="33" width="600" height="200"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="9JD-OB-Jpg"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Post Text Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRX-23-eqj">
+                                                    <rect key="frame" x="8" y="262" width="584" height="47"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Display Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyR-qV-Fzu">
+                                                    <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Date Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZ2-jJ-tW9">
+                                                    <rect key="frame" x="8" y="237" width="584" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LZ2-jJ-tW9" firstAttribute="top" secondItem="MJM-X2-qDS" secondAttribute="bottom" constant="4" id="7hP-j2-AMd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LZ2-jJ-tW9" secondAttribute="trailing" id="AT3-Xe-CcE"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="iRX-23-eqj" secondAttribute="trailing" id="FYJ-fZ-OBa"/>
+                                                <constraint firstItem="vyR-qV-Fzu" firstAttribute="top" secondItem="aBL-G5-0Xt" secondAttribute="topMargin" id="G2H-u6-cKB"/>
+                                                <constraint firstItem="iRX-23-eqj" firstAttribute="bottom" secondItem="aBL-G5-0Xt" secondAttribute="bottomMargin" id="Wpj-zF-SgG"/>
+                                                <constraint firstItem="iRX-23-eqj" firstAttribute="leading" secondItem="aBL-G5-0Xt" secondAttribute="leadingMargin" id="fJ1-3J-EhG"/>
+                                                <constraint firstItem="MJM-X2-qDS" firstAttribute="top" secondItem="vyR-qV-Fzu" secondAttribute="bottom" constant="4" id="ffA-Rz-cF8"/>
+                                                <constraint firstItem="MJM-X2-qDS" firstAttribute="leading" secondItem="aBL-G5-0Xt" secondAttribute="leading" id="g3r-MQ-A5d"/>
+                                                <constraint firstItem="vyR-qV-Fzu" firstAttribute="leading" secondItem="aBL-G5-0Xt" secondAttribute="leadingMargin" id="jmE-lO-YbW"/>
+                                                <constraint firstAttribute="trailing" secondItem="MJM-X2-qDS" secondAttribute="trailing" id="pwk-XL-pdC"/>
+                                                <constraint firstItem="iRX-23-eqj" firstAttribute="top" secondItem="LZ2-jJ-tW9" secondAttribute="bottom" constant="8" id="qMA-7i-5m9"/>
+                                                <constraint firstItem="LZ2-jJ-tW9" firstAttribute="leading" secondItem="aBL-G5-0Xt" secondAttribute="leadingMargin" id="sYh-zm-epS"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vyR-qV-Fzu" secondAttribute="trailing" id="t40-BG-phJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.92549019610000005" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="displayDateLabel" destination="LZ2-jJ-tW9" id="ET8-wh-8o2"/>
+                                            <outlet property="displayImageView" destination="MJM-X2-qDS" id="aDB-Ib-hf9"/>
+                                            <outlet property="displayNameLabel" destination="vyR-qV-Fzu" id="rGO-3q-hDH"/>
+                                            <outlet property="displayPostLabel" destination="iRX-23-eqj" id="KFi-Hy-2lY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="y0E-Bt-Jx6" id="3uR-5a-3BF"/>
+                                    <outlet property="delegate" destination="y0E-Bt-Jx6" id="XdL-Uo-dWC"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfd-2G-Dxi" firstAttribute="top" secondItem="lMA-NX-Jez" secondAttribute="bottom" id="2j2-eQ-9Ym"/>
+                            <constraint firstItem="wfd-2G-Dxi" firstAttribute="top" secondItem="o9A-fM-XQF" secondAttribute="bottom" id="6dH-v6-lh2"/>
+                            <constraint firstAttribute="trailing" secondItem="o9A-fM-XQF" secondAttribute="trailing" id="B4s-e6-Rvp"/>
+                            <constraint firstItem="o9A-fM-XQF" firstAttribute="leading" secondItem="Liu-KF-E2z" secondAttribute="leading" id="C17-dI-eD0"/>
                             <constraint firstItem="lMA-NX-Jez" firstAttribute="leading" secondItem="Liu-KF-E2z" secondAttribute="leading" id="ixF-cp-uzo"/>
                             <constraint firstItem="lMA-NX-Jez" firstAttribute="top" secondItem="aga-AL-yaC" secondAttribute="bottom" id="kgL-sh-D3b"/>
                             <constraint firstAttribute="trailing" secondItem="lMA-NX-Jez" secondAttribute="trailing" id="rGn-ef-LAO"/>
+                            <constraint firstItem="o9A-fM-XQF" firstAttribute="top" secondItem="aga-AL-yaC" secondAttribute="bottom" id="rs5-EJ-GfO" userLabel="adjust this"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Explore" id="hp5-ak-wfM"/>
                     <navigationItem key="navigationItem" id="WM1-cc-ySs">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="m4F-qY-gL0">
-                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AQB-uw-DaW">
+                            <rect key="frame" x="234" y="7" width="133" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Map"/>
-                                <segment title="List of Posts"/>
-                            </segments>
+                            <state key="normal" title="Show List of Posts!">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
                             <connections>
-                                <segue destination="oup-bF-U3D" kind="show" id="cqr-O0-E7s"/>
+                                <action selector="showTableView:" destination="y0E-Bt-Jx6" eventType="touchUpInside" id="UOq-rr-7XS"/>
                             </connections>
-                        </segmentedControl>
+                        </button>
                     </navigationItem>
                     <connections>
                         <outlet property="mapViewer" destination="lMA-NX-Jez" id="xfw-IN-dTD"/>
+                        <outlet property="showingButton" destination="AQB-uw-DaW" id="LZp-L5-Mim"/>
+                        <outlet property="tableView" destination="o9A-fM-XQF" id="90r-aP-UrA"/>
+                        <outlet property="tableViewTopConstraint" destination="rs5-EJ-GfO" id="Jd8-IX-mWw"/>
                         <segue destination="n8l-tv-64p" kind="show" identifier="showFullPostFromAnnotation" id="mBL-g7-CCx"/>
+                        <segue destination="n8l-tv-64p" kind="show" identifier="showFullPost" id="lxr-pL-SxR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUQ-hq-lQY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="244"/>
+            <point key="canvasLocation" x="117" y="268"/>
         </scene>
         <!--Listing View Controller-->
         <scene sceneID="qlZ-sv-l3t">
@@ -325,7 +449,7 @@ and also some other stuff about the icons</mutableString>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vIC-HI-Ddd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vIC-HI-Ddd">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="650"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.61176470588235299" green="0.61176470588235299" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -377,11 +501,6 @@ and also some other stuff about the icons</mutableString>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="displayNameLabel" destination="GFq-j3-hzT" id="Hg6-WY-hvX"/>
-                                            <outlet property="postDateLabel" destination="bKv-vt-nKQ" id="NYR-ll-oKZ"/>
-                                            <outlet property="postTextLabel" destination="S0q-qf-ddS" id="nWx-3y-WC1"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCellWithImage" rowHeight="310" id="cIY-lp-aPO" customClass="PostTableWithImageViewCell" customModule="i_am_here" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="215" width="600" height="348"/>
@@ -456,12 +575,6 @@ and also some other stuff about the icons</mutableString>
                                             </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="selectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        <connections>
-                                            <outlet property="displayDateLabel" destination="s0p-TD-rOQ" id="O0Z-5g-PDy"/>
-                                            <outlet property="displayImageView" destination="3RF-5v-DYS" id="Y5D-uR-oRW"/>
-                                            <outlet property="displayNameLabel" destination="fmm-a6-dU1" id="HQp-mF-Kp4"/>
-                                            <outlet property="displayPostLabel" destination="CCF-9N-2cl" id="Kf0-d1-HX0"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -487,19 +600,15 @@ and also some other stuff about the icons</mutableString>
                                 <segment title="Map"/>
                                 <segment title="List of Posts"/>
                             </segments>
-                            <connections>
-                                <segue destination="y0E-Bt-Jx6" kind="show" id="czj-Pk-Rr8"/>
-                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="vIC-HI-Ddd" id="z5v-68-k2O"/>
-                        <segue destination="n8l-tv-64p" kind="show" identifier="showFullPost" id="Cnt-hU-B8d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05U-ns-OOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="1031"/>
+            <point key="canvasLocation" x="54" y="1173"/>
         </scene>
         <!--Full Post View Controller-->
         <scene sceneID="xAS-s7-sai">
@@ -513,7 +622,7 @@ and also some other stuff about the icons</mutableString>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tWE-oj-Tz8">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWE-oj-Tz8">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FKO-wN-1ah" userLabel="Content View">
@@ -826,7 +935,6 @@ and also some other stuff about the icons</mutableString>
         <image name="MakePost" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="czj-Pk-Rr8"/>
-        <segue reference="Cnt-hU-B8d"/>
+        <segue reference="mBL-g7-CCx"/>
     </inferredMetricsTieBreakers>
 </document>
