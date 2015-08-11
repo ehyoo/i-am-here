@@ -61,6 +61,8 @@ class FullPostViewController: UIViewController {
                 var viewImage = UIImage(data: data!, scale: 1.0)
                 
                 postImageView.image = viewImage
+                verticalLayout.constant = postImageView.frame.size.height + 8
+                
             } else {
                 postImageView.hidden = true
                 

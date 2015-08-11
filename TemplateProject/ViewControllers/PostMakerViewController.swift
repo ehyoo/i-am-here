@@ -28,6 +28,7 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var userLocationLabel: UILabel!
     
+    @IBOutlet weak var postButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -99,6 +100,8 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
         alertController.addAction(UIAlertAction(title: "OK", style:UIAlertActionStyle.Default, handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+        
+        self.postButton.enabled = false
     }
     
     

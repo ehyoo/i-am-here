@@ -25,18 +25,6 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
     let currentUser = PFUser.currentUser()
     
     override func viewDidLoad() {
-        //incredibly hacky way to get around the two views using the segmented control
-        //hides the back button 
-        self.navigationItem.setHidesBackButton(true, animated: true)
-        
-        //refresh the list
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-        self.tableView.addSubview(refreshControl)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
         //used in background
         self.locationManager.requestAlwaysAuthorization()
@@ -49,15 +37,18 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
             self.locationManager.requestAlwaysAuthorization()
             self.locationManager.startUpdatingLocation()
-//            self.locationManager.location.distanceFromLocation(penis)
         }
         
-        ParseHelper.listingViewControllerRequest({
-            (result: [AnyObject]?, error: NSError?) -> Void in
-            self.posts = result as? [Post] ?? []
-            self.tableView.reloadData()},
-            currentLocationConverted: currentLocationConverted)
+        //incredibly hacky way to get around the two views using the segmented control
+        //hides the back button 
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        //refresh the list
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
     }
+    
     
     func queryUpdateList(coordinate: PFGeoPoint) {
         //query and updating the table view list
@@ -101,9 +92,7 @@ class ListingViewController: UIViewController, CLLocationManagerDelegate {
     
     //refresh the list
     func refresh(refreshControl: UIRefreshControl) {
-        println("something")
-        self.tableView.reloadData()
-        //do something
+        queryUpdateList(currentLocationConverted)
         refreshControl.endRefreshing()
     }
    
@@ -133,10 +122,12 @@ extension ListingViewController: UITableViewDataSource, UITableViewDelegate {
             postAtIndex.downloadImage()
             var cellWithImage = tableView.dequeueReusableCellWithIdentifier("PostCellWithImage") as! PostTableWithImageViewCell
             cellWithImage.wholePost = postAtIndex
+            cellWithImage.layoutMargins = UIEdgeInsetsZero
             return cellWithImage
         } else {
             var cellWithoutImage = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
             cellWithoutImage.wholePost = postAtIndex
+            cellWithoutImage.layoutMargins = UIEdgeInsetsZero
             return cellWithoutImage
         }
     }

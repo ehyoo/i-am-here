@@ -46,5 +46,4 @@ class Post: PFObject, PFSubclassing {
             }
         }
     }
-    
 }

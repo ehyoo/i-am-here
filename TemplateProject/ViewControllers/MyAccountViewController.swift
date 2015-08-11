@@ -39,7 +39,13 @@ class MyAccountViewController: UIViewController {
         postsQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
             self.posts = result as? [Post] ?? []
             self.postCount = self.posts.count
-            self.postCountLabel.text = "You have made \(self.postCount) posts!"
+            if self.posts.count == 0 {
+                self.postCountLabel.text = "You have made no posts yet!"
+            } else if self.posts.count == 1 {
+                self.postCountLabel.text = "You have made 1 post!"
+            } else {
+                self.postCountLabel.text = "You have made \(self.postCount) posts!"
+            }
         }
         nameLabel.text = "Hello, \(PFUser.currentUser()!.username!)!"
     }
