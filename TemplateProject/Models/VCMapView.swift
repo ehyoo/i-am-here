@@ -13,6 +13,11 @@ import CoreLocation
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        
+        var forwardButton = UIButton()
+        forwardButton.setImage(UIImage(named:"FullPostButton"), forState: nil)
+        forwardButton.frame = CGRectMake(0.0, 0.0, 25, 25)
+        
         if let annotation = annotation as? Marker {
             let identifier = "marker"
             var view: MKPinAnnotationView
@@ -28,11 +33,11 @@ extension MapViewController: MKMapViewDelegate {
                 
                 view.pinColor = annotation.pinColor()
                 if view.pinColor == .Green {
-                    view.rightCalloutAccessoryView = UIButton.buttonWithType(.ContactAdd) as! UIView
+                    view.rightCalloutAccessoryView = forwardButton as UIView
                 } else if view.pinColor == .Red {
                     view.enabled = false
                 } else {
-                    view.rightCalloutAccessoryView = UIButton.buttonWithType(.ContactAdd) as! UIView
+                    view.rightCalloutAccessoryView = forwardButton as UIView
                 }
                 
                 //that's how you animate the drop 

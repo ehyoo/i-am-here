@@ -24,15 +24,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         parseLoginHelper = ParseLoginHelper {[unowned self] user, error in
             // Initialize the ParseLoginHelper with a callback
             if let error = error {
-                // 1
+                
                 ErrorHandling.defaultErrorHandler(error)
+                
             } else  if let user = user {
                 // if login was successful, display the TabBarController
-                // 2
+                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
                 let tabController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UIViewController
                 // 3
-                self.window?.rootViewController!.presentViewController(tabController, animated:true, completion:nil)
+                if self.window?.rootViewController!.presentedViewController == nil {
+                    self.window?.rootViewController!.presentViewController(tabController, animated:true, completion:nil)
+                } else {
+                    self.window?.rootViewController!.dismissViewControllerAnimated(true, completion: {
+                        self.window?.rootViewController!.presentViewController(tabController, animated:true, completion:nil)
+                    })
+                }
+
             }
         }
     }
@@ -69,23 +78,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Otherwise set the LoginViewController to be the first
         let loginViewController = PFLogInViewController()
+        let signUpViewController = PFSignUpViewController()
         loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
         
-        //spaghetti design for login screen logo
-        var loginLogoTitle = UILabel()
-        loginLogoTitle.text = "I Was Here"
-        loginLogoTitle.textColor = StyleConstants.customGreenColor
-        loginLogoTitle.font = loginLogoTitle.font.fontWithSize(40.0)
-        loginViewController.logInView!.logo = loginLogoTitle
+        //login and sign up screen logo
         
-        //space for more spaghetti design
+        var logoImage: UIImageView
+        logoImage = UIImageView(frame:CGRectMake(0, 0, 300, 150))
+        logoImage.image = UIImage(named:"LogoHorizontal")
+        logoImage.contentMode = UIViewContentMode.ScaleAspectFit
+        loginViewController.logInView!.logo = logoImage
+        
+        var signUpImage: UIImageView
+        signUpImage = UIImageView(frame:CGRectMake(0, 0, 300, 150))
+        signUpImage.image = UIImage(named:"LogoHorizontal")
+        signUpImage.contentMode = UIViewContentMode.ScaleAspectFit
+        
+        
+        signUpViewController.signUpView!.logo = signUpImage
         
         
         //delegation and stuff
         loginViewController.delegate = parseLoginHelper
-        loginViewController.signUpController?.delegate = parseLoginHelper
+        signUpViewController.delegate = parseLoginHelper
         
         startViewController = loginViewController
+        loginViewController.signUpController = signUpViewController
     }
     
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -102,25 +120,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var showedViewController: UIViewController
         
         let loginViewController = PFLogInViewController()
+        let signUpViewController = PFSignUpViewController()
+        
         loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
         loginViewController.delegate = parseLoginHelper
-        loginViewController.signUpController?.delegate = parseLoginHelper
+        signUpViewController.delegate = parseLoginHelper
         
         //spaghetti design for login screen logo
-        var loginLogoTitle = UILabel()
-        loginLogoTitle.text = "I Was Here"
-        loginLogoTitle.textColor = StyleConstants.customGreenColor
-        loginLogoTitle.font = loginLogoTitle.font.fontWithSize(40.0)
-        loginViewController.logInView!.logo = loginLogoTitle
+        
+        var logoImage: UIImageView
+        logoImage = UIImageView(frame:CGRectMake(0, 0, 300, 150))
+        logoImage.image = UIImage(named:"LogoHorizontal")
+        logoImage.contentMode = UIViewContentMode.ScaleAspectFit
         
         showedViewController = loginViewController
+        
+        loginViewController.logInView!.logo = logoImage
+        
+        var signUpImage: UIImageView
+        signUpImage = UIImageView(frame:CGRectMake(0, 0, 300, 150))
+        signUpImage.image = UIImage(named:"LogoHorizontal")
+        signUpImage.contentMode = UIViewContentMode.ScaleAspectFit
+        
+        signUpViewController.signUpView!.logo = signUpImage
+        
+        
+        loginViewController.signUpController = signUpViewController
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = showedViewController;
         self.window?.makeKeyAndVisible()
         
     }
-
+    
   //MARK: Facebook Integration
     
     func applicationDidBecomeActive(application: UIApplication) {

@@ -30,8 +30,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapViewer: MKMapView!
-    @IBOutlet weak var showingButton: UIButton!
+
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -168,26 +169,41 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         self.locationManager.startUpdatingHeading()
     }
     
-    @IBAction func showTableView(sender: AnyObject) {
-        
-        if self.tableViewTopConstraint.constant != 0 {
-            self.tableViewTopConstraint.constant = 0
-
+    @IBAction func tableViewSegmentedControlAction(sender: AnyObject) {
+        if segmentedControl.selectedSegmentIndex == 0 {
+            self.tableViewTopConstraint.constant = 1200
             UIView.animateWithDuration(0.3) {
                 self.view.layoutIfNeeded()
             }
-            showingButton.setTitle("Show Map!", forState: UIControlState.Normal)
-            
-            
         } else {
-            self.tableViewTopConstraint.constant = 487
+            self.tableViewTopConstraint.constant = 0
+            
             UIView.animateWithDuration(0.3) {
                 self.view.layoutIfNeeded()
             }
-            showingButton.setTitle("Show List of Posts!", forState: UIControlState.Normal)
-            
         }
+        
     }
+//    @IBAction func showTableView(sender: AnyObject) {
+//        
+//        if self.tableViewTopConstraint.constant != 0 {
+//            self.tableViewTopConstraint.constant = 0
+//
+//            UIView.animateWithDuration(0.3) {
+//                self.view.layoutIfNeeded()
+//            }
+//            showingButton.setTitle("Show Map!", forState: UIControlState.Normal)
+//            
+//            
+//        } else {
+//            self.tableViewTopConstraint.constant = 1200
+//            UIView.animateWithDuration(0.3) {
+//                self.view.layoutIfNeeded()
+//            }
+//            showingButton.setTitle("Show List of Posts!", forState: UIControlState.Normal)
+//            
+//        }
+//    }
     
     
     func queryUpdateList(coordinate: PFGeoPoint) {

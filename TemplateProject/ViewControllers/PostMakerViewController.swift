@@ -211,6 +211,7 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
         usernameInput.text = nil
         postTextView.text = nil
         postImageView.image = nil
+        self.selectedImage = nil
         self.uploadButton.hidden = false
         self.infoLabel.hidden = true
     }
