@@ -69,11 +69,11 @@ class Marker: NSObject, MKAnnotation {
         var hardCodedDistance = CLLocationDistance(1000.0)
         
         if self.post.user!.objectId == PFUser.currentUser()!.objectId {
-            return .Purple
+            return .Green
         } else if self.distance > hardCodedDistance {
             return .Red
         } else {
-            return .Green
+            return .Purple
         }
 
     }

@@ -18,6 +18,7 @@ class FullPostViewController: UIViewController {
     @IBOutlet weak var postTextLabel: UITextView!
     @IBOutlet weak var verticalLayout: NSLayoutConstraint!
     
+    let regionRadius: CLLocationDistance = 250
     var dateString: String?
     var postCreatedDate: String?
     
@@ -42,7 +43,6 @@ class FullPostViewController: UIViewController {
         
         //scroll to the top of the text view
         //we can delete this i think
-        postTextLabel.scrollRangeToVisible(NSMakeRange(0, 0))
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -79,7 +79,5 @@ class FullPostViewController: UIViewController {
         return dateString!
     }
 
-    
-    
 
 }

@@ -183,7 +183,7 @@
 		62551B9F1B06C35B000913E4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		62551BA11B06C373000913E4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		62A07D651B1F79F2001F6916 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
-		62C8C1E01B06BD6500DC3EA7 /* i_am_here.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = i_am_here.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		62C8C1E01B06BD6500DC3EA7 /* i_was_here.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = i_was_here.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,7 +354,7 @@
 		62C8C1E11B06BD6500DC3EA7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				62C8C1E01B06BD6500DC3EA7 /* i_am_here.app */,
+				62C8C1E01B06BD6500DC3EA7 /* i_was_here.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -362,9 +362,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		62C8C1DF1B06BD6500DC3EA7 /* i_am_here */ = {
+		62C8C1DF1B06BD6500DC3EA7 /* i_was_here */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 62C8C1FF1B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "i_am_here" */;
+			buildConfigurationList = 62C8C1FF1B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "i_was_here" */;
 			buildPhases = (
 				62C8C1DC1B06BD6500DC3EA7 /* Sources */,
 				62C8C1DD1B06BD6500DC3EA7 /* Frameworks */,
@@ -377,9 +377,9 @@
 				62A07D201B1E56C8001F6916 /* PBXTargetDependency */,
 				62A07D711B1F7FB9001F6916 /* PBXTargetDependency */,
 			);
-			name = i_am_here;
+			name = i_was_here;
 			productName = Makestagram;
-			productReference = 62C8C1E01B06BD6500DC3EA7 /* i_am_here.app */;
+			productReference = 62C8C1E01B06BD6500DC3EA7 /* i_was_here.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -396,7 +396,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 62C8C1DB1B06BD6500DC3EA7 /* Build configuration list for PBXProject "i_am_here" */;
+			buildConfigurationList = 62C8C1DB1B06BD6500DC3EA7 /* Build configuration list for PBXProject "i_was_here" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -419,7 +419,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				62C8C1DF1B06BD6500DC3EA7 /* i_am_here */,
+				62C8C1DF1B06BD6500DC3EA7 /* i_was_here */,
 			);
 		};
 /* End PBXProject section */
@@ -654,7 +654,7 @@
 				INFOPLIST_FILE = TemplateProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_NAME = i_am_here;
+				PRODUCT_NAME = i_was_here;
 				SWIFT_OBJC_BRIDGING_HEADER = "TemplateProject/TemplateProject-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -673,7 +673,7 @@
 				INFOPLIST_FILE = TemplateProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_NAME = i_am_here;
+				PRODUCT_NAME = i_was_here;
 				SWIFT_OBJC_BRIDGING_HEADER = "TemplateProject/TemplateProject-Bridging-Header.h";
 			};
 			name = Release;
@@ -681,7 +681,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		62C8C1DB1B06BD6500DC3EA7 /* Build configuration list for PBXProject "i_am_here" */ = {
+		62C8C1DB1B06BD6500DC3EA7 /* Build configuration list for PBXProject "i_was_here" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				62C8C1FD1B06BD6500DC3EA7 /* Debug */,
@@ -690,7 +690,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		62C8C1FF1B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "i_am_here" */ = {
+		62C8C1FF1B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "i_was_here" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				62C8C2001B06BD6500DC3EA7 /* Debug */,

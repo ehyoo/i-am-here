@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "62C8C1DF1B06BD6500DC3EA7"
-               BuildableName = "i_am_here.app"
-               BlueprintName = "i_am_here"
-               ReferencedContainer = "container:i_am_here.xcodeproj">
+               BuildableName = "I Was Here.app"
+               BlueprintName = "i_was_here"
+               ReferencedContainer = "container:i_was_here.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "62C8C1DF1B06BD6500DC3EA7"
-            BuildableName = "i_am_here.app"
-            BlueprintName = "i_am_here"
-            ReferencedContainer = "container:i_am_here.xcodeproj">
+            BuildableName = "I Was Here.app"
+            BlueprintName = "i_was_here"
+            ReferencedContainer = "container:i_was_here.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "62C8C1DF1B06BD6500DC3EA7"
-            BuildableName = "i_am_here.app"
-            BlueprintName = "i_am_here"
-            ReferencedContainer = "container:i_am_here.xcodeproj">
+            BuildableName = "I Was Here.app"
+            BlueprintName = "i_was_here"
+            ReferencedContainer = "container:i_was_here.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "62C8C1DF1B06BD6500DC3EA7"
-            BuildableName = "i_am_here.app"
-            BlueprintName = "i_am_here"
-            ReferencedContainer = "container:i_am_here.xcodeproj">
+            BuildableName = "I Was Here.app"
+            BlueprintName = "i_was_here"
+            ReferencedContainer = "container:i_was_here.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

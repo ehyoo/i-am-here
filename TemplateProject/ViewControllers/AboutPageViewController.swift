@@ -17,6 +17,8 @@ class AboutPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.sizeToFit()
+        self.automaticallyAdjustsScrollViewInsets = false
+        textView.scrollRangeToVisible(NSMakeRange(0, 0))
     }
 
     override func didReceiveMemoryWarning() {

@@ -9,7 +9,7 @@
         <!--My Posts View Controller-->
         <scene sceneID="xP2-2Z-t8j">
             <objects>
-                <viewController title="My Posts View Controller" id="qeZ-7a-IJO" customClass="MyAccountViewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="My Posts View Controller" id="qeZ-7a-IJO" customClass="MyAccountViewController" customModule="i_was_here" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5t3-AG-e09"/>
                         <viewControllerLayoutGuide type="bottom" id="enT-7d-DlB"/>
@@ -39,7 +39,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBt-R5-wf5">
-                                <rect key="frame" x="36" y="251" width="528" height="60"/>
+                                <rect key="frame" x="36" y="341" width="528" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="NYK-Ws-hNS"/>
@@ -77,7 +77,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFJ-Xx-Brv">
-                                <rect key="frame" x="36" y="341" width="528" height="60"/>
+                                <rect key="frame" x="36" y="251" width="528" height="60"/>
                                 <color key="backgroundColor" red="0.40392156862745099" green="0.81176470588235294" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="MAT-4B-3U0"/>
@@ -106,6 +106,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="mCR-BQ-W7w" secondAttribute="trailing" id="I8A-jq-sRw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WFJ-Xx-Brv" secondAttribute="trailing" constant="20" id="IMy-xB-U4H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9SI-eE-57l" secondAttribute="trailing" id="P8G-f9-sJt"/>
+                            <constraint firstItem="WFJ-Xx-Brv" firstAttribute="top" secondItem="EB0-q9-1Qs" secondAttribute="bottom" constant="30" id="Q1U-yd-yrT"/>
                             <constraint firstItem="WFJ-Xx-Brv" firstAttribute="top" secondItem="VBt-R5-wf5" secondAttribute="bottom" constant="30" id="URe-il-IJ5"/>
                             <constraint firstItem="WFJ-Xx-Brv" firstAttribute="leading" secondItem="sma-GQ-9ML" secondAttribute="leadingMargin" constant="20" id="Z3R-l6-IG4"/>
                             <constraint firstItem="9SI-eE-57l" firstAttribute="top" secondItem="5t3-AG-e09" secondAttribute="bottom" constant="15" id="eEd-2h-PaZ"/>
@@ -114,7 +115,14 @@
                             <constraint firstItem="EB0-q9-1Qs" firstAttribute="leading" secondItem="sma-GQ-9ML" secondAttribute="leadingMargin" constant="20" id="oSy-Jc-rBJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VBt-R5-wf5" secondAttribute="trailing" constant="20" id="qBi-Yc-qGa"/>
                             <constraint firstItem="VBt-R5-wf5" firstAttribute="leading" secondItem="sma-GQ-9ML" secondAttribute="leadingMargin" constant="20" id="tjW-iR-p1T"/>
+                            <constraint firstItem="VBt-R5-wf5" firstAttribute="top" secondItem="WFJ-Xx-Brv" secondAttribute="bottom" constant="30" id="vwD-4T-GFo"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="URe-il-IJ5"/>
+                                <exclude reference="3XL-ck-1Uh"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="CTb-0U-6Ee"/>
                     <navigationItem key="navigationItem" title="About Me" id="N1v-u0-a3B"/>
@@ -130,7 +138,7 @@
         <!--About Page View Controller-->
         <scene sceneID="ilQ-iv-fE1">
             <objects>
-                <viewController id="w1L-nt-f7g" customClass="AboutPageViewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="w1L-nt-f7g" customClass="AboutPageViewController" customModule="i_was_here" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PIQ-VR-T0l"/>
                         <viewControllerLayoutGuide type="bottom" id="GWj-di-ucK"/>
@@ -140,27 +148,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeQ-hV-ofh">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Copyright (c) 2015 Hohun Yoo
- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: 
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <mutableString key="text">Copyright (c) 2015 Hohun Yoo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: 
  
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-and also some other stuff about the icons</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+-----
+
+Attribution is given to icons8 (https://icons8.com/) for the usage of the Map Icon (ic8.link/343), the Edit Row Icon (ic8.link/16263), the Contacts Icon (ic8.link/529), and the Colored Forward Icon (ic8.link/15195). 
+
+-----
+
+This app was made during the 2015 session of the Make School Summer Academy. </mutableString>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MeQ-hV-ofh" firstAttribute="top" secondItem="PfZ-uW-Ywc" secondAttribute="topMargin" id="9FD-Bk-iRS"/>
+                            <constraint firstItem="MeQ-hV-ofh" firstAttribute="top" secondItem="PIQ-VR-T0l" secondAttribute="bottom" id="FkD-uf-7xj"/>
                             <constraint firstItem="GWj-di-ucK" firstAttribute="top" secondItem="MeQ-hV-ofh" secondAttribute="bottom" id="kIi-kL-PYa"/>
                             <constraint firstItem="MeQ-hV-ofh" firstAttribute="leading" secondItem="PfZ-uW-Ywc" secondAttribute="leadingMargin" constant="-16" id="lzR-rj-eA0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MeQ-hV-ofh" secondAttribute="trailing" constant="-16" id="pR8-Wi-zbv"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9FD-Bk-iRS"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="textView" destination="MeQ-hV-ofh" id="l0A-GX-tOz"/>
@@ -173,7 +193,7 @@ and also some other stuff about the icons</string>
         <!--My Posts Listing View Controller-->
         <scene sceneID="nSV-Su-3Nn">
             <objects>
-                <tableViewController id="Ehd-oH-ANe" customClass="MyPostsListingViewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ehd-oH-ANe" customClass="MyPostsListingViewController" customModule="i_was_here" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="22" sectionFooterHeight="22" id="q1C-Hf-3J9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,7 +202,7 @@ and also some other stuff about the icons</string>
                         <color key="sectionIndexBackgroundColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="104" id="kcw-EH-9XK" customClass="UserPostTableViewCell" customModule="i_am_here" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="104" id="kcw-EH-9XK" customClass="UserPostTableViewCell" customModule="i_was_here" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kcw-EH-9XK" id="6ii-sQ-Obb">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -266,7 +286,7 @@ and also some other stuff about the icons</string>
         <!--Map View Controller-->
         <scene sceneID="JG6-Ll-GNv">
             <objects>
-                <viewController storyboardIdentifier="MapViewController" title="Map View Controller" id="y0E-Bt-Jx6" customClass="MapViewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" title="Map View Controller" id="y0E-Bt-Jx6" customClass="MapViewController" customModule="i_was_here" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aga-AL-yaC"/>
                         <viewControllerLayoutGuide type="bottom" id="wfd-2G-Dxi"/>
@@ -283,7 +303,7 @@ and also some other stuff about the icons</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.92549019610000005" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="108" id="FJL-fN-KXI" customClass="PostTableViewCell" customModule="i_am_here" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="108" id="FJL-fN-KXI" customClass="PostTableViewCell" customModule="i_was_here" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FJL-fN-KXI" id="Bv2-d5-8aC">
@@ -328,7 +348,7 @@ and also some other stuff about the icons</string>
                                             <outlet property="postTextLabel" destination="Zek-0w-BHZ" id="EoT-0r-gv7"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCellWithImage" rowHeight="318" id="0Hh-ef-7Ez" customClass="PostTableWithImageViewCell" customModule="i_am_here" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCellWithImage" rowHeight="318" id="0Hh-ef-7Ez" customClass="PostTableWithImageViewCell" customModule="i_was_here" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" tableViewCell="0Hh-ef-7Ez" id="aBL-G5-0Xt">
@@ -433,7 +453,7 @@ and also some other stuff about the icons</string>
         <!--Full Post View Controller-->
         <scene sceneID="xAS-s7-sai">
             <objects>
-                <viewController id="n8l-tv-64p" customClass="FullPostViewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="n8l-tv-64p" customClass="FullPostViewController" customModule="i_was_here" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9w7-Uf-MVr"/>
                         <viewControllerLayoutGuide type="bottom" id="KLh-bA-s97"/>
@@ -490,6 +510,7 @@ and also some other stuff about the icons</string>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="FKO-wN-1ah" firstAttribute="top" secondItem="tWE-oj-Tz8" secondAttribute="top" id="Phi-1m-w8J"/>
                                     <constraint firstItem="FKO-wN-1ah" firstAttribute="leading" secondItem="tWE-oj-Tz8" secondAttribute="leading" id="eoO-7v-DZG"/>
@@ -539,7 +560,7 @@ and also some other stuff about the icons</string>
         <!--Post Maker-->
         <scene sceneID="gjx-8d-4xW">
             <objects>
-                <viewController storyboardIdentifier="Post Maker" title="Post Maker" id="oBh-hM-e5R" customClass="PostMakerViewController" customModule="i_am_here" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Post Maker" title="Post Maker" id="oBh-hM-e5R" customClass="PostMakerViewController" customModule="i_was_here" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ftr-Oc-KCQ"/>
                         <viewControllerLayoutGuide type="bottom" id="mUV-0F-NZK"/>
@@ -587,7 +608,7 @@ and also some other stuff about the icons</string>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Display Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tJy-9C-Igg">
-                                <rect key="frame" x="16" y="68" width="568" height="30"/>
+                                <rect key="frame" x="16" y="74" width="568" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="eXK-oo-xzB"/>
                                 </constraints>
@@ -595,13 +616,13 @@ and also some other stuff about the icons</string>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are in: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUh-dO-g9r">
-                                <rect key="frame" x="20" y="98" width="564" height="16"/>
+                                <rect key="frame" x="20" y="104" width="564" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRE-9N-TYz">
-                                <rect key="frame" x="16" y="118" width="568" height="170"/>
+                                <rect key="frame" x="16" y="124" width="568" height="170"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="MUn-cA-v2u"/>
@@ -637,7 +658,7 @@ and also some other stuff about the icons</string>
                             <constraint firstItem="mUV-0F-NZK" firstAttribute="top" secondItem="gsz-Sc-jMf" secondAttribute="bottom" constant="4" id="BBQ-Nq-Qgc"/>
                             <constraint firstItem="gsz-Sc-jMf" firstAttribute="leading" secondItem="6iR-TK-MDe" secondAttribute="leadingMargin" id="GM9-xW-PfD"/>
                             <constraint firstItem="gsz-Sc-jMf" firstAttribute="centerY" secondItem="LXy-1o-vlm" secondAttribute="centerY" constant="-0.5" id="JGG-jd-PfQ"/>
-                            <constraint firstItem="tJy-9C-Igg" firstAttribute="top" secondItem="Ftr-Oc-KCQ" secondAttribute="bottom" constant="4" id="K8N-xO-r3u"/>
+                            <constraint firstItem="tJy-9C-Igg" firstAttribute="top" secondItem="Ftr-Oc-KCQ" secondAttribute="bottom" constant="10" id="K8N-xO-r3u"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gsz-Sc-jMf" secondAttribute="trailing" id="Ky7-FJ-pWd"/>
                             <constraint firstItem="Vpc-QV-F9U" firstAttribute="top" secondItem="cRE-9N-TYz" secondAttribute="bottom" id="QjO-AE-6nF"/>
                             <constraint firstAttribute="centerX" secondItem="eCD-bz-l0z" secondAttribute="centerX" id="T8V-QL-1QJ"/>

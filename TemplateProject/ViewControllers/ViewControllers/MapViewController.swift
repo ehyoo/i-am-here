@@ -184,26 +184,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
         
     }
-//    @IBAction func showTableView(sender: AnyObject) {
-//        
-//        if self.tableViewTopConstraint.constant != 0 {
-//            self.tableViewTopConstraint.constant = 0
-//
-//            UIView.animateWithDuration(0.3) {
-//                self.view.layoutIfNeeded()
-//            }
-//            showingButton.setTitle("Show Map!", forState: UIControlState.Normal)
-//            
-//            
-//        } else {
-//            self.tableViewTopConstraint.constant = 1200
-//            UIView.animateWithDuration(0.3) {
-//                self.view.layoutIfNeeded()
-//            }
-//            showingButton.setTitle("Show List of Posts!", forState: UIControlState.Normal)
-//            
-//        }
-//    }
     
     
     func queryUpdateList(coordinate: PFGeoPoint) {
