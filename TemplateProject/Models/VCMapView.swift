@@ -27,21 +27,32 @@ extension MapViewController: MKMapViewDelegate {
                 view.pinColor = annotation.pinColor()
                 
             } else {
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                let id = "\(arc4random())"
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: id)
                 view.canShowCallout = true
+                view.userInteractionEnabled = true
+                view.enabled = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 
                 view.pinColor = annotation.pinColor()
+                
+                //what the fuck why isnt this working
+                
+                
                 if view.pinColor == .Green {
                     view.rightCalloutAccessoryView = forwardButton as UIView
                 } else if view.pinColor == .Red {
+                    view.userInteractionEnabled = false
+                    view.canShowCallout = false
                     view.enabled = false
-                } else {
+                    println(view.annotation)
+                } else if view.pinColor == .Purple {
                     view.rightCalloutAccessoryView = forwardButton as UIView
+                } else {
+                    view.enabled = false
+                    view.userInteractionEnabled = false
                 }
                 
-                //that's how you animate the drop 
-//              view.animatesDrop = true
             }
             
             return view

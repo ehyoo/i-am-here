@@ -22,6 +22,7 @@ struct StyleConstants {
 
     static let borderColor = UIColor(red: 230/255.0, green: 230/255.0, blue: 230/255.0, alpha: 1.0)
     
+    static let beigeColor = UIColor(red: 259/255.0, green: 245/255.0, blue: 236/255.0, alpha: 0.70)
 
     
     //255,141,53

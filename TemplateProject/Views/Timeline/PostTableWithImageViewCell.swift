@@ -21,6 +21,7 @@ class PostTableWithImageViewCell: UITableViewCell {
     
     var wholePost: Post? {
         didSet {
+            self.backgroundColor = StyleConstants.beigeColor
             displayPost(wholePost!)
             wholePost!.image ->> displayImageView
         }

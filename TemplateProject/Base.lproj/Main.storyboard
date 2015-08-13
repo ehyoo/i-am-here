@@ -149,7 +149,7 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeQ-hV-ofh">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                                <mutableString key="text">Copyright (c) 2015 Hohun Yoo
+                                <string key="text">Copyright (c) 2015 Hohun Yoo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: 
  
@@ -163,7 +163,7 @@ Attribution is given to icons8 (https://icons8.com/) for the usage of the Map Ic
 
 -----
 
-This app was made during the 2015 session of the Make School Summer Academy. </mutableString>
+This app was made during the 2015 session of the Make School Summer Academy. </string>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -281,7 +281,7 @@ This app was made during the 2015 session of the Make School Summer Academy. </m
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y51-h5-jfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-746" y="244"/>
+            <point key="canvasLocation" x="-746" y="268"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="JG6-Ll-GNv">
@@ -299,11 +299,11 @@ This app was made during the 2015 session of the Make School Summer Academy. </m
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="o9A-fM-XQF">
-                                <rect key="frame" x="0.0" y="1064" width="600" height="9"/>
+                                <rect key="frame" x="0.0" y="1064" width="600" height="76"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.92549019610000005" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="108" id="FJL-fN-KXI" customClass="PostTableViewCell" customModule="i_was_here" customModuleProvider="target">
+                                    <tableViewCell alpha="0.29999999999999999" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="108" id="FJL-fN-KXI" customClass="PostTableViewCell" customModule="i_was_here" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FJL-fN-KXI" id="Bv2-d5-8aC">
@@ -348,7 +348,7 @@ This app was made during the 2015 session of the Make School Summer Academy. </m
                                             <outlet property="postTextLabel" destination="Zek-0w-BHZ" id="EoT-0r-gv7"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCellWithImage" rowHeight="318" id="0Hh-ef-7Ez" customClass="PostTableWithImageViewCell" customModule="i_was_here" customModuleProvider="target">
+                                    <tableViewCell alpha="0.29999999999999999" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCellWithImage" rowHeight="318" id="0Hh-ef-7Ez" customClass="PostTableWithImageViewCell" customModule="i_was_here" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" tableViewCell="0Hh-ef-7Ez" id="aBL-G5-0Xt">
@@ -469,45 +469,57 @@ This app was made during the 2015 session of the Make School Summer Academy. </m
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="510"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kd3-SW-9dD">
-                                                <rect key="frame" x="16" y="342" width="568" height="17"/>
+                                                <rect key="frame" x="16" y="442" width="568" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA8-gl-KAO">
-                                                <rect key="frame" x="16" y="316" width="568" height="21"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA8-gl-KAO">
+                                                <rect key="frame" x="16" y="416" width="568" height="21"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-Du-Ndo">
-                                                <rect key="frame" x="16" y="8" width="568" height="300"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-Du-Ndo">
+                                                <rect key="frame" x="8" y="8" width="584" height="400"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="300" id="5Ta-ZC-Z69"/>
+                                                    <constraint firstAttribute="height" constant="400" id="9rT-SE-nkq"/>
+                                                    <constraint firstAttribute="height" constant="400" id="q3e-eh-4pA"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="9rT-SE-nkq"/>
+                                                    </mask>
+                                                </variation>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Post Text stuff" translatesAutoresizingMaskIntoConstraints="NO" id="2hm-cZ-jCh">
-                                                <rect key="frame" x="12" y="362" width="572" height="33"/>
+                                                <rect key="frame" x="12" y="462" width="572" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="RA8-gl-KAO" firstAttribute="top" secondItem="FKO-wN-1ah" secondAttribute="top" constant="316" id="0A9-gu-bD2"/>
+                                            <constraint firstItem="RA8-gl-KAO" firstAttribute="top" secondItem="FKO-wN-1ah" secondAttribute="top" constant="416" id="0A9-gu-bD2"/>
                                             <constraint firstItem="RA8-gl-KAO" firstAttribute="leading" secondItem="FKO-wN-1ah" secondAttribute="leading" constant="16" id="17x-yw-09v"/>
                                             <constraint firstItem="kd3-SW-9dD" firstAttribute="top" secondItem="RA8-gl-KAO" secondAttribute="bottom" constant="5" id="8aq-cp-SK9"/>
                                             <constraint firstItem="2hm-cZ-jCh" firstAttribute="top" secondItem="kd3-SW-9dD" secondAttribute="bottom" constant="3" id="8s4-Vs-bne"/>
                                             <constraint firstItem="2hm-cZ-jCh" firstAttribute="leading" secondItem="FKO-wN-1ah" secondAttribute="leading" constant="12" id="9ds-sK-ZkT"/>
                                             <constraint firstAttribute="bottom" secondItem="2hm-cZ-jCh" secondAttribute="bottom" id="CvF-mU-h9H"/>
                                             <constraint firstAttribute="trailing" secondItem="2hm-cZ-jCh" secondAttribute="trailing" constant="16" id="MEo-Sn-l5b"/>
-                                            <constraint firstAttribute="trailing" secondItem="pfL-Du-Ndo" secondAttribute="trailing" constant="16" id="QLR-rw-ula"/>
+                                            <constraint firstAttribute="trailing" secondItem="pfL-Du-Ndo" secondAttribute="trailing" constant="8" id="QLR-rw-ula"/>
                                             <constraint firstAttribute="trailing" secondItem="kd3-SW-9dD" secondAttribute="trailing" constant="16" id="RGo-Ml-QNp"/>
                                             <constraint firstItem="pfL-Du-Ndo" firstAttribute="top" secondItem="FKO-wN-1ah" secondAttribute="top" constant="8" id="TLn-rc-Mlm"/>
                                             <constraint firstItem="kd3-SW-9dD" firstAttribute="leading" secondItem="FKO-wN-1ah" secondAttribute="leading" constant="16" id="UTT-0l-TY9"/>
-                                            <constraint firstItem="pfL-Du-Ndo" firstAttribute="leading" secondItem="FKO-wN-1ah" secondAttribute="leading" constant="16" id="gZm-P7-IND"/>
+                                            <constraint firstItem="pfL-Du-Ndo" firstAttribute="leading" secondItem="FKO-wN-1ah" secondAttribute="leading" constant="8" id="gZm-P7-IND"/>
+                                            <constraint firstItem="RA8-gl-KAO" firstAttribute="top" secondItem="pfL-Du-Ndo" secondAttribute="bottom" constant="8" id="umn-Wh-KGU"/>
                                             <constraint firstAttribute="trailing" secondItem="RA8-gl-KAO" secondAttribute="trailing" constant="16" id="yFq-qx-8Z5"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="umn-Wh-KGU"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -532,6 +544,7 @@ This app was made during the 2015 session of the Make School Summer Academy. </m
                         <outlet property="dateLabel" destination="kd3-SW-9dD" id="pRw-5v-zoK"/>
                         <outlet property="displayNameLabel" destination="RA8-gl-KAO" id="qcM-m5-UuW"/>
                         <outlet property="postImageView" destination="pfL-Du-Ndo" id="3Y5-yI-GWb"/>
+                        <outlet property="postImageViewHeight" destination="9rT-SE-nkq" id="Fuz-eh-3D0"/>
                         <outlet property="postTextLabel" destination="2hm-cZ-jCh" id="W4f-tO-48A"/>
                         <outlet property="verticalLayout" destination="0A9-gu-bD2" id="gDF-00-lJy"/>
                     </connections>

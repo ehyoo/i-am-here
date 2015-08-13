@@ -20,6 +20,7 @@ class PostTableViewCell: UITableViewCell {
     
     var wholePost: Post? {
         didSet {
+            self.backgroundColor = StyleConstants.beigeColor
             displayPost(wholePost!)
         }
     }

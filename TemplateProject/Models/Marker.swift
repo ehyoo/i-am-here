@@ -66,7 +66,7 @@ class Marker: NSObject, MKAnnotation {
     func pinColor() -> MKPinAnnotationColor {
         //sorts colours
         
-        var hardCodedDistance = CLLocationDistance(1000.0)
+        var hardCodedDistance = CLLocationDistance(804.672)
         
         if self.post.user!.objectId == PFUser.currentUser()!.objectId {
             return .Green

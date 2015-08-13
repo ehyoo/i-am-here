@@ -20,6 +20,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var currentLocation = CLLocation(latitude: 37.3318, longitude: -122.0312)
     var refPoint = PFGeoPoint(latitude: 37.3318, longitude: -122.0312)
     var posts: [Post] = []
+    var postsForList: [Post] = []
     var markers: [Marker] = []
     var selectedPost = Post()
     var dateString: String?
@@ -30,7 +31,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapViewer: MKMapView!
-
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
@@ -54,6 +54,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             self.locationManager.startUpdatingLocation()
             
             mapViewer.delegate = self
+            tableView.backgroundColor = UIColor.clearColor()
         }
 
         
@@ -88,11 +89,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     func getPostsAtLocationAndMakePins(point: PFGeoPoint) {
         //function that queries puts into array, then makes pin.
         let postsQuery = Post.query()
-        postsQuery!.orderByDescending("createdAt")
+        let postsQueryForList = Post.query()
         
+        postsQuery!.orderByDescending("createdAt")
         postsQuery!.whereKey("location", nearGeoPoint: point, withinMiles: 50.0)
         postsQuery!.includeKey("user")
         
+        postsQueryForList!.orderByDescending("createdAt")
+        postsQueryForList!.whereKey("location", nearGeoPoint: point, withinMiles: 0.5)
+        postsQueryForList!.includeKey("user")
+            
         //actual query
         postsQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
@@ -103,8 +109,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 self.makePins(self.posts) //UTTER FEAR
             }
         }
+        
+        postsQueryForList!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
+            if error == nil {
+                self.postsForList = []
+                for object in result! {
+                    self.postsForList.append(object as! Post)
+                }
+            }
+        }
     }
-    
+
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         //converts CLLocationCoordinates to GeoLocation for Parse uploading
         var currentLongitude: CLLocationDegrees = manager.location.coordinate.longitude
@@ -115,10 +130,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         var clLong = currentLocation.coordinate.longitude
         refPoint = PFGeoPoint(latitude: clLat, longitude: clLong)
         
+        var counter = 0
+        
         if posts.count == 0 {
-            getPostsAtLocationAndMakePins(refPoint)
-            centerMapOnLocation(currentLocation)
-            queryUpdateList(refPoint)
+            for i in 0...7 {
+                getPostsAtLocationAndMakePins(refPoint)
+                centerMapOnLocation(currentLocation)
+                queryUpdateList(refPoint)
+                ++counter
+            }
+                self.locationManager.stopUpdatingLocation()
         } else {
             self.locationManager.stopUpdatingLocation()
             getPostsAtLocationAndMakePins(refPoint)
@@ -190,7 +211,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         //query and updating the table view list
         
         ParseHelper.listingViewControllerRequest( {(result: [AnyObject]?, error: NSError?) -> Void in
-            self.posts = result as? [Post] ?? []
+            self.postsForList = result as? [Post] ?? []
             self.tableView.reloadData()},
             currentLocationConverted: coordinate)
     }

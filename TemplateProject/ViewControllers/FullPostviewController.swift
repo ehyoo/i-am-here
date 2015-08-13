@@ -17,6 +17,7 @@ class FullPostViewController: UIViewController {
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTextLabel: UITextView!
     @IBOutlet weak var verticalLayout: NSLayoutConstraint!
+    @IBOutlet weak var postImageViewHeight: NSLayoutConstraint!
     
     let regionRadius: CLLocationDistance = 250
     var dateString: String?

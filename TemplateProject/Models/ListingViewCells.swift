@@ -14,12 +14,12 @@ import Parse
 extension MapViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedPostInList = posts[indexPath.row]
+        selectedPostInList = postsForList[indexPath.row]
         self.performSegueWithIdentifier("showFullPost", sender: self)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return postsForList.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -28,7 +28,7 @@ extension MapViewController: UITableViewDataSource, UITableViewDelegate {
         self.tableView.estimatedRowHeight = 44.0
         
         // image and without image posts
-        let postAtIndex = posts[indexPath.row] as Post
+        let postAtIndex = postsForList[indexPath.row] as Post
         
         
         if postAtIndex.imageFile.getData() != nil {
