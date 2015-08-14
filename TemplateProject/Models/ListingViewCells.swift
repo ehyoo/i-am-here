@@ -31,7 +31,7 @@ extension MapViewController: UITableViewDataSource, UITableViewDelegate {
         let postAtIndex = postsForList[indexPath.row] as Post
         
         
-        if postAtIndex.imageFile.getData() != nil {
+        if postAtIndex.imageFile != nil {
             postAtIndex.downloadImage()
             var cellWithImage = tableView.dequeueReusableCellWithIdentifier("PostCellWithImage") as! PostTableWithImageViewCell
             cellWithImage.wholePost = postAtIndex

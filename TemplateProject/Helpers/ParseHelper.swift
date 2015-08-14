@@ -16,8 +16,10 @@ class ParseHelper {
         
         postsQuery!.orderByDescending("createdAt")
         //bases query based on location
-        postsQuery!.whereKey("location", nearGeoPoint: currentLocationConverted, withinMiles: 0.05)
+        postsQuery!.whereKey("location", nearGeoPoint: currentLocationConverted, withinMiles: 0.5)
         //actual query
         postsQuery!.findObjectsInBackgroundWithBlock(completionBlock)
+        
     }
+    
 }

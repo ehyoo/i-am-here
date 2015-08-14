@@ -16,7 +16,7 @@ import Parse
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     var locationManager = CLLocationManager()
-    let regionRadius: CLLocationDistance = 250
+    let regionRadius: CLLocationDistance = 200
     var currentLocation = CLLocation(latitude: 37.3318, longitude: -122.0312)
     var refPoint = PFGeoPoint(latitude: 37.3318, longitude: -122.0312)
     var posts: [Post] = []
@@ -28,6 +28,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var postCount: Int = 0
     var refreshControl = UIRefreshControl()
     var selectedPostInList: Post?
+    
+    let defaultRange = 0...4
+    let additionalRangeSize = 5
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapViewer: MKMapView!
@@ -98,7 +101,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         postsQueryForList!.orderByDescending("createdAt")
         postsQueryForList!.whereKey("location", nearGeoPoint: point, withinMiles: 0.5)
         postsQueryForList!.includeKey("user")
-            
+//        postsQueryForList!.limit = 5
+        
         //actual query
         postsQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
@@ -137,7 +141,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 getPostsAtLocationAndMakePins(refPoint)
                 centerMapOnLocation(currentLocation)
                 queryUpdateList(refPoint)
-                ++counter
             }
                 self.locationManager.stopUpdatingLocation()
         } else {
@@ -155,14 +158,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        //mapViewer.showsUserLocation = (status == .AuthorizedAlways)
         mapViewer.showsUserLocation = true
     }
     
     func centerMapOnLocation(location: CLLocation) {
         //gets map view area
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-            regionRadius * 2.0, regionRadius * 2.0)
+            regionRadius * 1.0, regionRadius * 1.0)
         mapViewer.setRegion(coordinateRegion, animated: true)
     }
     
@@ -232,7 +234,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         refreshControl.endRefreshing()
     }
     
+//    func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
+//        ParseHelper.listingViewControllerRequest(range, currentLocationConverted: refPoint) {
+//            (result: [AnyObject]?, error: NSError?) -> Void in
+//            // 2
+//            let posts = result as? [Post] ?? []
+//            // 3
+//            completionBlock(posts)
+//        }
+//    }
     
     
- }
+}
 

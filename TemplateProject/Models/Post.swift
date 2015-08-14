@@ -13,7 +13,7 @@ import Bond
 
 
 class Post: PFObject, PFSubclassing {
-    @NSManaged var imageFile: PFFile
+    @NSManaged var imageFile: PFFile?
     @NSManaged var user: PFUser?
     @NSManaged var location: PFGeoPoint?
     @NSManaged var text: String?
@@ -37,11 +37,13 @@ class Post: PFObject, PFSubclassing {
     }
     
     func downloadImage() {
-        if (image.value == nil) {
-            imageFile.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
-                if let data = data {
-                    let image = UIImage(data: data, scale:1.0)!
-                    self.image.value = image
+        if image.value == nil {
+            if let imageFile = self.imageFile {
+                imageFile.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+                    if let data = data {
+                        let image = UIImage(data: data, scale:1.0)!
+                        self.image.value = image
+                    }
                 }
             }
         }
