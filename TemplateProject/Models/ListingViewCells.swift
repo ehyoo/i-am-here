@@ -13,13 +13,17 @@ import Parse
 
 extension MapViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        timelineComponent.targetWillDisplayEntry(indexPath.row)
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedPostInList = postsForList[indexPath.row]
+        selectedPostInList = timelineComponent.content[indexPath.row]
         self.performSegueWithIdentifier("showFullPost", sender: self)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postsForList.count
+        return timelineComponent.content.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -28,7 +32,7 @@ extension MapViewController: UITableViewDataSource, UITableViewDelegate {
         self.tableView.estimatedRowHeight = 44.0
         
         // image and without image posts
-        let postAtIndex = postsForList[indexPath.row] as Post
+        let postAtIndex = timelineComponent.content[indexPath.row] as Post
         
         
         if postAtIndex.imageFile != nil {

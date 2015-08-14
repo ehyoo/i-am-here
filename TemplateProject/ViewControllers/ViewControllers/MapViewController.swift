@@ -14,14 +14,14 @@ import CoreLocation
 import Parse
 import ConvenienceKit
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, TimelineComponentTarget {
     
     var locationManager = CLLocationManager()
     let regionRadius: CLLocationDistance = 200
     var currentLocation = CLLocation(latitude: 37.3318, longitude: -122.0312)
     var refPoint = PFGeoPoint(latitude: 37.3318, longitude: -122.0312)
     var posts: [Post] = []
-    var postsForList: [Post] = []
+//    var postsForList: [Post] = []
     var markers: [Marker] = []
     var selectedPost = Post()
     var dateString: String?
@@ -29,6 +29,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var postCount: Int = 0
     var refreshControl = UIRefreshControl()
     var selectedPostInList: Post?
+    var timelineComponent: TimelineComponent<Post, MapViewController>!
     
     let defaultRange = 0...4
     let additionalRangeSize = 5
@@ -43,6 +44,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         //incredibly hacky way to switch between the two views
         //hides the back button
         self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        //timeline component
+        timelineComponent = TimelineComponent(target: self)
         
         super.viewDidLoad()
         //used in background
@@ -63,15 +67,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
 
         
         //refresh the list
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-        tableView.addSubview(refreshControl)
+//        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+//        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+//        tableView.addSubview(refreshControl)
         
     }
     
     override func viewDidAppear(animated: Bool) {
         //no animation because im a scrub and i dont want to take more time into this
         self.locationManager.startUpdatingLocation()
+        timelineComponent.loadInitialIfRequired()
     }
     
     func makePins(posts: [Post]) {
@@ -115,14 +120,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             }
         }
         
-        postsQueryForList!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
-            if error == nil {
-                self.postsForList = []
-                for object in result! {
-                    self.postsForList.append(object as! Post)
-                }
-            }
-        }
+//        postsQueryForList!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
+//            if error == nil {
+//                self.postsForList = []
+//                for object in result! {
+//                    self.postsForList.append(object as! Post)
+//                }
+//            }
+//        }
     }
 
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -141,13 +146,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             for i in 0...7 {
                 getPostsAtLocationAndMakePins(refPoint)
                 centerMapOnLocation(currentLocation)
-                queryUpdateList(refPoint)
+//                queryUpdateList(refPoint)
             }
                 self.locationManager.stopUpdatingLocation()
         } else {
             self.locationManager.stopUpdatingLocation()
             getPostsAtLocationAndMakePins(refPoint)
-            queryUpdateList(refPoint)
+//            queryUpdateList(refPoint)
         }
     }
     
@@ -210,14 +215,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     
-    func queryUpdateList(coordinate: PFGeoPoint) {
-        //query and updating the table view list
-        
-        ParseHelper.listingViewControllerRequest( {(result: [AnyObject]?, error: NSError?) -> Void in
-            self.postsForList = result as? [Post] ?? []
-            self.tableView.reloadData()},
-            currentLocationConverted: coordinate)
-    }
+//    func queryUpdateList(coordinate: PFGeoPoint) {
+//        //query and updating the table view list
+//        
+//        ParseHelper.listingViewControllerRequest(defaultRange, currentLocationConverted: refPoint, completionBlock: {(result: [AnyObject]?, error: NSError?) -> Void in
+////            self.postsForList = result as? [Post] ?? []
+//            self.tableView.reloadData()})
+//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showFullPost" {
@@ -230,20 +234,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
     
-    func refresh(refreshControl: UIRefreshControl) {
-        queryUpdateList(refPoint)
-        refreshControl.endRefreshing()
-    }
-    
-//    func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
-//        ParseHelper.listingViewControllerRequest(range, currentLocationConverted: refPoint) {
-//            (result: [AnyObject]?, error: NSError?) -> Void in
-//            // 2
-//            let posts = result as? [Post] ?? []
-//            // 3
-//            completionBlock(posts)
-//        }
+//    func refresh(refreshControl: UIRefreshControl) {
+//        queryUpdateList(refPoint)
+//        refreshControl.endRefreshing()
 //    }
+    
+    func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
+        ParseHelper.listingViewControllerRequest(range, currentLocationConverted: refPoint) {
+            (result: [AnyObject]?, error: NSError?) -> Void in
+            // 2
+            let posts = result as? [Post] ?? []
+            // 3
+            completionBlock(posts)
+        }
+    }
     
     
 }
