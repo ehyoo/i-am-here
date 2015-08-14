@@ -12,6 +12,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import Parse
+import ConvenienceKit
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     

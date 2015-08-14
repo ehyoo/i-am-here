@@ -1,0 +1,10 @@
+PODS:
+  - ConvenienceKit (0.2.0)
+
+DEPENDENCIES:
+  - ConvenienceKit
+
+SPEC CHECKSUMS:
+  ConvenienceKit: 947032f82c3d419d107e0cbde1fcb725e9c7ed62
+
+COCOAPODS: 0.38.2
