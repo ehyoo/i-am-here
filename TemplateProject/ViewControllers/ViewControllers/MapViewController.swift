@@ -85,7 +85,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         for x in 0..<self.posts.count {
             
         let marker = Marker(post: self.posts[x])
-            //trying to set this fucking location
+            //trying to set location
             var postToHereDistance = self.locationManager.location.distanceFromLocation(marker.cllocation)
             //and getting distance of pins
             marker.distance = postToHereDistance

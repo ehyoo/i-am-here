@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
-    //spaghetti design for app
+    //esign for app
     UINavigationBar.appearance().barTintColor = StyleConstants.customGreenColor
     UINavigationBar.appearance().tintColor = UIColor.whiteColor()
     UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -126,7 +126,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loginViewController.delegate = parseLoginHelper
         signUpViewController.delegate = parseLoginHelper
         
-        //spaghetti design for login screen logo
+        //design for login screen logo
         
         var logoImage: UIImageView
         logoImage = UIImageView(frame:CGRectMake(0, 0, 300, 150))

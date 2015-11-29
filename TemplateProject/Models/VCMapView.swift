@@ -36,9 +36,6 @@ extension MapViewController: MKMapViewDelegate {
                 
                 view.pinColor = annotation.pinColor()
                 
-                //what the fuck why isnt this working
-                
-                
                 if view.pinColor == .Green {
                     view.rightCalloutAccessoryView = forwardButton as UIView
                 } else if view.pinColor == .Red {

@@ -186,7 +186,7 @@ class PostMakerViewController: UIViewController, CLLocationManagerDelegate, UIGe
             takePhoto()
         } else {
             self.postTextView.endEditing(true)
-            //dismiss your shit
+            //dismiss 
         }
         
         //also dismisses the keyboard
